@@ -1,4 +1,4 @@
-﻿namespace Tyuiu.ShiganovaAV.Sprint7.V7
+﻿namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 {
     partial class FormEditApartment_SAV
     {
@@ -378,7 +378,6 @@
             this.Controls.Add(this.labelTitle_SAV);
             this.Controls.Add(this.panelButtons_SAV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEditApartment_SAV";

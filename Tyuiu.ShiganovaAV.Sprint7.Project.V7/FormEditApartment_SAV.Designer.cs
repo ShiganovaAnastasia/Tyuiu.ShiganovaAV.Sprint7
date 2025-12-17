@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Tyuiu.ShiganovaAV.Sprint7.Lib;
+using Tyuiu.ShiganovaAV.Sprint7.Project.V7.Lib;
 using static Tyuiu.ShiganovaAV.Sprint7.Project.V7.Lib.DataService;
 
-namespace Tyuiu.ShiganovaAV.Sprint7.V7
+namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 {
     public partial class FormEditApartment_SAV : Form
     {
@@ -35,7 +35,6 @@ namespace Tyuiu.ShiganovaAV.Sprint7.V7
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Icon = Properties.Resources.icon_SAV; // Можно добавить иконку
 
             // Настройка DateTimePicker
             dateTimePickerRegistration_SAV.Format = DateTimePickerFormat.Custom;
