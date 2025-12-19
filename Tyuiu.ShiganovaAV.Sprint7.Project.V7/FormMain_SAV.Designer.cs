@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.ShiganovaAV.Sprint7.Project.V7.Lib;
-using static Tyuiu.ShiganovaAV.Sprint7.Project.V7.Lib.DataService;
 
 namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 {
     public partial class FormMain_SAV : Form
     {
         private DataService dataService_SAV;
-        private List<Apartment> apartments_SAV;
+        private List<DataService.Apartment> apartments_SAV;
         private string currentFilePath_SAV;
 
         public FormMain_SAV()
@@ -24,14 +24,16 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
         private void InitializeApplication_SAV()
         {
             dataService_SAV = new DataService();
-            apartments_SAV = new List<Apartment>();
+            apartments_SAV = new List<DataService.Apartment>();
             currentFilePath_SAV = string.Empty;
 
-            // Настройка интерфейса
             SetupDataGridView_SAV();
             SetupChart_SAV();
             SetupComboBoxes_SAV();
-            UpdateStatusBar_SAV("Готов к работе");
+            UpdateStatusBar_SAV("Готов к работе. Загрузите файл или добавьте новую квартиру.");
+
+            // Включаем основные кнопки
+            EnableControls_SAV(true);
         }
 
         private void SetupDataGridView_SAV()
@@ -48,29 +50,34 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
             chartStatistics_SAV.Titles.Clear();
             chartStatistics_SAV.Series.Clear();
             chartStatistics_SAV.ChartAreas.Clear();
+            chartStatistics_SAV.Legends.Clear();
 
             // Основная область для гистограммы
             ChartArea mainArea = new ChartArea("MainArea");
             mainArea.AxisX.Title = "Подъезды";
             mainArea.AxisY.Title = "Количество квартир";
+            mainArea.AxisX.Interval = 1;
+            mainArea.AxisY.Interval = 1;
+            mainArea.AxisX.LabelStyle.Font = new Font("Arial", 10);
+            mainArea.AxisY.LabelStyle.Font = new Font("Arial", 10);
+            mainArea.AxisX.TitleFont = new Font("Arial", 11, FontStyle.Bold);
+            mainArea.AxisY.TitleFont = new Font("Arial", 11, FontStyle.Bold);
+
             chartStatistics_SAV.ChartAreas.Add(mainArea);
         }
 
         private void SetupComboBoxes_SAV()
         {
-            // Фильтр по подъездам
             comboBoxFilterEntrance_SAV.Items.Clear();
             comboBoxFilterEntrance_SAV.Items.Add("Все подъезды");
             for (int i = 1; i <= 10; i++)
                 comboBoxFilterEntrance_SAV.Items.Add($"Подъезд {i}");
             comboBoxFilterEntrance_SAV.SelectedIndex = 0;
 
-            // Фильтр по долгам
             comboBoxFilterDebt_SAV.Items.Clear();
             comboBoxFilterDebt_SAV.Items.AddRange(new string[] { "Все", "С долгом", "Без долга" });
             comboBoxFilterDebt_SAV.SelectedIndex = 0;
 
-            // Сортировка
             comboBoxSortBy_SAV.Items.Clear();
             comboBoxSortBy_SAV.Items.AddRange(new string[] {
                 "Номер квартиры",
@@ -84,6 +91,18 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
         private void UpdateStatusBar_SAV(string message)
         {
             toolStripStatusLabelInfo_SAV.Text = message;
+        }
+
+        private void EnableControls_SAV(bool enabled)
+        {
+            buttonSaveFile_SAV.Enabled = enabled && apartments_SAV.Count > 0;
+            buttonAddApartment_SAV.Enabled = true; // Всегда доступно
+            buttonEditApartment_SAV.Enabled = enabled && dataGridViewApartments_SAV.SelectedRows.Count > 0;
+            buttonDeleteApartment_SAV.Enabled = enabled && dataGridViewApartments_SAV.SelectedRows.Count > 0;
+            buttonExportStats_SAV.Enabled = enabled && apartments_SAV.Count > 0;
+            buttonApplyFilters_SAV.Enabled = enabled && apartments_SAV.Count > 0;
+            textBoxSearch_SAV.Enabled = enabled && apartments_SAV.Count > 0;
+            buttonSearch_SAV.Enabled = enabled && apartments_SAV.Count > 0;
         }
 
         private void buttonLoadFile_SAV_Click(object sender, EventArgs e)
@@ -112,7 +131,7 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
                 UpdateStatistics_SAV();
                 UpdateChart_SAV();
 
-                UpdateStatusBar_SAV($"Загружено {apartments_SAV.Count} записей из файла: {System.IO.Path.GetFileName(filePath)}");
+                UpdateStatusBar_SAV($"Загружено {apartments_SAV.Count} записей из файла: {Path.GetFileName(filePath)}");
                 EnableControls_SAV(true);
             }
             catch (Exception ex)
@@ -123,22 +142,22 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
             }
         }
 
-        private void DisplayApartments_SAV(List<Apartment> apartments)
+        private void DisplayApartments_SAV(List<DataService.Apartment> apartments)
         {
             dataGridViewApartments_SAV.Rows.Clear();
             dataGridViewApartments_SAV.Columns.Clear();
 
-            // Создаем колонки
-            string[] columns = { "Подъезд", "Квартира", "Общ. пл., м²", "Жил. пл., м²",
-                           "Комнаты", "Фамилия", "Дата прописки", "Членов семьи",
-                           "Детей", "Долг", "Примечание" };
+            string[] columns = {
+                "Подъезд", "Квартира", "Общ. пл., м²", "Жил. пл., м²",
+                "Комнаты", "Фамилия", "Дата прописки", "Членов семьи",
+                "Детей", "Долг", "Примечание"
+            };
 
             foreach (string col in columns)
             {
                 dataGridViewApartments_SAV.Columns.Add(col, col);
             }
 
-            // Заполняем данными
             foreach (var apt in apartments)
             {
                 dataGridViewApartments_SAV.Rows.Add(
@@ -156,8 +175,8 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
                 );
             }
 
-            // Настраиваем ширину колонок
-            dataGridViewApartments_SAV.Columns["Примечание"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            // Обновляем состояние кнопок после отображения данных
+            EnableControls_SAV(true);
         }
 
         private void UpdateStatistics_SAV()
@@ -193,47 +212,74 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
         private void UpdateChart_SAV()
         {
             chartStatistics_SAV.Series.Clear();
+            chartStatistics_SAV.Titles.Clear();
+            chartStatistics_SAV.ChartAreas.Clear();
+            chartStatistics_SAV.Legends.Clear();
 
             if (apartments_SAV.Count == 0) return;
 
-            // Гистограмма распределения по подъездам
+            // Создаем новую область для графика
+            ChartArea chartArea = new ChartArea("ChartArea1");
+            chartArea.AxisX.Title = "Подъезды";
+            chartArea.AxisY.Title = "Количество квартир";
+            chartArea.AxisX.Interval = 1;
+            chartArea.AxisY.Interval = 1;
+            chartArea.AxisX.LabelStyle.Font = new Font("Arial", 10);
+            chartArea.AxisY.LabelStyle.Font = new Font("Arial", 10);
+            chartArea.AxisX.TitleFont = new Font("Arial", 11, FontStyle.Bold);
+            chartArea.AxisY.TitleFont = new Font("Arial", 11, FontStyle.Bold);
+            chartStatistics_SAV.ChartAreas.Add(chartArea);
+
+            // Получаем данные для графика
             var byEntrance = apartments_SAV
                 .GroupBy(a => a.EntranceNumber)
                 .Select(g => new { Entrance = g.Key, Count = g.Count() })
                 .OrderBy(x => x.Entrance)
                 .ToList();
 
+            // Создаем серию для графика
             Series series = new Series("Квартиры по подъездам");
             series.ChartType = SeriesChartType.Column;
             series.Color = Color.SteelBlue;
+            series.IsValueShownAsLabel = true;
+            series.LabelFormat = "0";
+            series.Font = new Font("Arial", 10, FontStyle.Bold);
+            series["PointWidth"] = "0.6";
 
+            // Добавляем точки данных
             foreach (var item in byEntrance)
             {
-                DataPoint point = new DataPoint();
-                point.SetValueXY($"Подъезд {item.Entrance}", item.Count);
-                point.Label = item.Count.ToString();
-                series.Points.Add(point);
+                int pointIndex = series.Points.AddXY($"Подъезд {item.Entrance}", item.Count);
+                series.Points[pointIndex].Color = Color.SteelBlue;
+                series.Points[pointIndex].Label = item.Count.ToString();
+                series.Points[pointIndex].LabelForeColor = Color.White;
             }
 
             chartStatistics_SAV.Series.Add(series);
-            chartStatistics_SAV.Titles.Clear();
-            chartStatistics_SAV.Titles.Add($"Распределение квартир по подъездам (всего: {apartments_SAV.Count})");
-        }
 
-        private void EnableControls_SAV(bool enabled)
-        {
-            buttonSaveFile_SAV.Enabled = enabled;
-            buttonAddApartment_SAV.Enabled = enabled;
-            buttonEditApartment_SAV.Enabled = enabled;
-            buttonDeleteApartment_SAV.Enabled = enabled;
-            buttonExportStats_SAV.Enabled = enabled;
-            buttonApplyFilters_SAV.Enabled = enabled;
-            textBoxSearch_SAV.Enabled = enabled;
-            buttonSearch_SAV.Enabled = enabled;
+            // Добавляем заголовок
+            chartStatistics_SAV.Titles.Add($"Распределение квартир по подъездам (всего: {apartments_SAV.Count})");
+            chartStatistics_SAV.Titles[0].Font = new Font("Arial", 12, FontStyle.Bold);
+
+            // Настраиваем легенду
+            Legend legend = new Legend();
+            legend.Docking = Docking.Bottom;
+            legend.Alignment = StringAlignment.Center;
+            chartStatistics_SAV.Legends.Add(legend);
+
+            // Обновляем график
+            chartStatistics_SAV.Invalidate();
         }
 
         private void buttonSaveFile_SAV_Click(object sender, EventArgs e)
         {
+            if (apartments_SAV.Count == 0)
+            {
+                MessageBox.Show("Нет данных для сохранения", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (string.IsNullOrEmpty(currentFilePath_SAV))
             {
                 using (SaveFileDialog saveDialog = new SaveFileDialog())
@@ -258,7 +304,7 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
                 dataService_SAV.SaveToFile(currentFilePath_SAV, apartments_SAV);
                 MessageBox.Show("Данные успешно сохранены!",
                     "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UpdateStatusBar_SAV($"Данные сохранены в файл: {System.IO.Path.GetFileName(currentFilePath_SAV)}");
+                UpdateStatusBar_SAV($"Данные сохранены в файл: {Path.GetFileName(currentFilePath_SAV)}");
             }
             catch (Exception ex)
             {
@@ -269,14 +315,24 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 
         private void buttonAddApartment_SAV_Click(object sender, EventArgs e)
         {
-            FormEditApartment_SAV form = new FormEditApartment_SAV();
-            if (form.ShowDialog() == DialogResult.OK)
+            try
             {
-                apartments_SAV.Add(form.GetApartment());
-                DisplayApartments_SAV(apartments_SAV);
-                UpdateStatistics_SAV();
-                UpdateChart_SAV();
-                UpdateStatusBar_SAV("Новая квартира добавлена");
+                using (var editForm = new FormEditApartment_SAV())
+                {
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                    {
+                        apartments_SAV.Add(editForm.GetApartment());
+                        DisplayApartments_SAV(apartments_SAV);
+                        UpdateStatistics_SAV();
+                        UpdateChart_SAV();
+                        UpdateStatusBar_SAV("Новая квартира добавлена");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении квартиры: {ex.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -292,14 +348,24 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
             int index = dataGridViewApartments_SAV.SelectedRows[0].Index;
             if (index < apartments_SAV.Count)
             {
-                FormEditApartment_SAV form = new FormEditApartment_SAV(apartments_SAV[index]);
-                if (form.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    apartments_SAV[index] = form.GetApartment();
-                    DisplayApartments_SAV(apartments_SAV);
-                    UpdateStatistics_SAV();
-                    UpdateChart_SAV();
-                    UpdateStatusBar_SAV("Данные квартиры обновлены");
+                    using (var editForm = new FormEditApartment_SAV(apartments_SAV[index]))
+                    {
+                        if (editForm.ShowDialog() == DialogResult.OK)
+                        {
+                            apartments_SAV[index] = editForm.GetApartment();
+                            DisplayApartments_SAV(apartments_SAV);
+                            UpdateStatistics_SAV();
+                            UpdateChart_SAV();
+                            UpdateStatusBar_SAV("Данные квартиры обновлены");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при редактировании: {ex.Message}",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -332,6 +398,13 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 
         private void buttonSearch_SAV_Click(object sender, EventArgs e)
         {
+            if (apartments_SAV.Count == 0)
+            {
+                MessageBox.Show("Нет данных для поиска", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             string searchText = textBoxSearch_SAV.Text.Trim();
 
             if (string.IsNullOrEmpty(searchText))
@@ -348,21 +421,28 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 
         private void buttonApplyFilters_SAV_Click(object sender, EventArgs e)
         {
-            List<Apartment> filtered = apartments_SAV;
+            if (apartments_SAV.Count == 0)
+            {
+                MessageBox.Show("Нет данных для фильтрации", "Информация",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            List<DataService.Apartment> filtered = apartments_SAV;
 
             // Фильтр по подъезду
             if (comboBoxFilterEntrance_SAV.SelectedIndex > 0)
             {
-                int entrance = comboBoxFilterEntrance_SAV.SelectedIndex; // 1 -> Подъезд 1
+                int entrance = comboBoxFilterEntrance_SAV.SelectedIndex;
                 filtered = dataService_SAV.FilterByEntrance(filtered, entrance);
             }
 
             // Фильтр по долгу
-            if (comboBoxFilterDebt_SAV.SelectedIndex == 1) // С долгом
+            if (comboBoxFilterDebt_SAV.SelectedIndex == 1)
             {
                 filtered = dataService_SAV.FilterByDebt(filtered, true);
             }
-            else if (comboBoxFilterDebt_SAV.SelectedIndex == 2) // Без долга
+            else if (comboBoxFilterDebt_SAV.SelectedIndex == 2)
             {
                 filtered = dataService_SAV.FilterByDebt(filtered, false);
             }
@@ -424,7 +504,7 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
             {
                 var stats = dataService_SAV.GetStatistics(apartments_SAV);
 
-                using (System.IO.StreamWriter writer = new System.IO.StreamWriter(filePath))
+                using (StreamWriter writer = new StreamWriter(filePath))
                 {
                     writer.WriteLine("СТАТИСТИКА ДОМОУПРАВЛЕНИЯ");
                     writer.WriteLine("==========================");
@@ -461,7 +541,7 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
 
                 MessageBox.Show("Статистика успешно экспортирована!",
                     "Экспорт", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UpdateStatusBar_SAV($"Статистика экспортирована в файл: {System.IO.Path.GetFileName(filePath)}");
+                UpdateStatusBar_SAV($"Статистика экспортирована в файл: {Path.GetFileName(filePath)}");
             }
             catch (Exception ex)
             {
@@ -517,8 +597,8 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
         private void dataGridViewApartments_SAV_SelectionChanged(object sender, EventArgs e)
         {
             bool hasSelection = dataGridViewApartments_SAV.SelectedRows.Count > 0;
-            buttonEditApartment_SAV.Enabled = hasSelection;
-            buttonDeleteApartment_SAV.Enabled = hasSelection;
+            buttonEditApartment_SAV.Enabled = hasSelection && apartments_SAV.Count > 0;
+            buttonDeleteApartment_SAV.Enabled = hasSelection && apartments_SAV.Count > 0;
         }
 
         private void toolStripMenuItemOpen_SAV_Click(object sender, EventArgs e)
@@ -534,6 +614,391 @@ namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7
         private void toolStripMenuItemExit_SAV_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+    }
+
+    // Класс формы редактирования
+    public class FormEditApartment_SAV : Form
+    {
+        private DataService.Apartment apartment;
+        private bool isEditMode;
+
+        // Элементы управления
+        private Label labelTitle;
+        private GroupBox groupBoxMain;
+        private TextBox textBoxNotes;
+        private Label labelNotes;
+        private CheckBox checkBoxDebt;
+        private Label labelDebt;
+        private NumericUpDown numericUpDownChildren;
+        private Label labelChildren;
+        private NumericUpDown numericUpDownFamily;
+        private Label labelFamily;
+        private DateTimePicker dateTimePickerRegistration;
+        private Label labelRegistrationDate;
+        private TextBox textBoxSurname;
+        private Label labelSurname;
+        private NumericUpDown numericUpDownRooms;
+        private Label labelRooms;
+        private NumericUpDown numericUpDownLivingArea;
+        private Label labelLivingArea;
+        private NumericUpDown numericUpDownTotalArea;
+        private Label labelTotalArea;
+        private NumericUpDown numericUpDownApartmentNum;
+        private Label labelApartment;
+        private NumericUpDown numericUpDownEntrance;
+        private Label labelEntrance;
+        private Panel panelButtons;
+        private Button buttonSave;
+        private Button buttonCancel;
+
+        public FormEditApartment_SAV()
+        {
+            InitializeControls();
+            apartment = new DataService.Apartment();
+            isEditMode = false;
+            SetupForm();
+        }
+
+        public FormEditApartment_SAV(DataService.Apartment apartmentToEdit)
+        {
+            InitializeControls();
+            apartment = apartmentToEdit;
+            isEditMode = true;
+            SetupForm();
+            FillForm();
+        }
+
+        private void InitializeControls()
+        {
+            // Настройка формы
+            this.Text = "Добавление квартиры";
+            this.Size = new Size(500, 600);
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Padding = new Padding(10);
+
+            // Заголовок
+            labelTitle = new Label();
+            labelTitle.Text = "Добавление новой квартиры";
+            labelTitle.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+            labelTitle.Dock = DockStyle.Top;
+            labelTitle.Height = 30;
+            labelTitle.TextAlign = ContentAlignment.MiddleCenter;
+            this.Controls.Add(labelTitle);
+
+            // Группа для полей ввода
+            groupBoxMain = new GroupBox();
+            groupBoxMain.Text = "Данные квартиры";
+            groupBoxMain.Dock = DockStyle.Fill;
+            groupBoxMain.Padding = new Padding(15);
+            this.Controls.Add(groupBoxMain);
+
+            // Создаем и добавляем элементы управления
+            InitializeFormControls();
+        }
+
+        private void InitializeFormControls()
+        {
+            int yPos = 30;
+            int labelWidth = 150;
+            int controlWidth = 250;
+            int spacing = 35;
+
+            // Подъезд
+            labelEntrance = new Label();
+            labelEntrance.Text = "Подъезд:";
+            labelEntrance.Location = new Point(20, yPos);
+            labelEntrance.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelEntrance);
+
+            numericUpDownEntrance = new NumericUpDown();
+            numericUpDownEntrance.Location = new Point(180, yPos);
+            numericUpDownEntrance.Size = new Size(controlWidth, 25);
+            numericUpDownEntrance.Minimum = 1;
+            numericUpDownEntrance.Maximum = 20;
+            numericUpDownEntrance.Value = 1;
+            groupBoxMain.Controls.Add(numericUpDownEntrance);
+
+            yPos += spacing;
+
+            // Номер квартиры
+            labelApartment = new Label();
+            labelApartment.Text = "Номер квартиры:";
+            labelApartment.Location = new Point(20, yPos);
+            labelApartment.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelApartment);
+
+            numericUpDownApartmentNum = new NumericUpDown();
+            numericUpDownApartmentNum.Location = new Point(180, yPos);
+            numericUpDownApartmentNum.Size = new Size(controlWidth, 25);
+            numericUpDownApartmentNum.Minimum = 1;
+            numericUpDownApartmentNum.Maximum = 999;
+            numericUpDownApartmentNum.Value = 1;
+            groupBoxMain.Controls.Add(numericUpDownApartmentNum);
+
+            yPos += spacing;
+
+            // Общая площадь
+            labelTotalArea = new Label();
+            labelTotalArea.Text = "Общая площадь (м²):";
+            labelTotalArea.Location = new Point(20, yPos);
+            labelTotalArea.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelTotalArea);
+
+            numericUpDownTotalArea = new NumericUpDown();
+            numericUpDownTotalArea.Location = new Point(180, yPos);
+            numericUpDownTotalArea.Size = new Size(controlWidth, 25);
+            numericUpDownTotalArea.DecimalPlaces = 1;
+            numericUpDownTotalArea.Minimum = 20;
+            numericUpDownTotalArea.Maximum = 500;
+            numericUpDownTotalArea.Increment = 0.5m;
+            numericUpDownTotalArea.Value = 50;
+            groupBoxMain.Controls.Add(numericUpDownTotalArea);
+
+            yPos += spacing;
+
+            // Жилая площадь
+            labelLivingArea = new Label();
+            labelLivingArea.Text = "Жилая площадь (м²):";
+            labelLivingArea.Location = new Point(20, yPos);
+            labelLivingArea.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelLivingArea);
+
+            numericUpDownLivingArea = new NumericUpDown();
+            numericUpDownLivingArea.Location = new Point(180, yPos);
+            numericUpDownLivingArea.Size = new Size(controlWidth, 25);
+            numericUpDownLivingArea.DecimalPlaces = 1;
+            numericUpDownLivingArea.Minimum = 10;
+            numericUpDownLivingArea.Maximum = 300;
+            numericUpDownLivingArea.Increment = 0.5m;
+            numericUpDownLivingArea.Value = 35;
+            groupBoxMain.Controls.Add(numericUpDownLivingArea);
+
+            yPos += spacing;
+
+            // Комнаты
+            labelRooms = new Label();
+            labelRooms.Text = "Количество комнат:";
+            labelRooms.Location = new Point(20, yPos);
+            labelRooms.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelRooms);
+
+            numericUpDownRooms = new NumericUpDown();
+            numericUpDownRooms.Location = new Point(180, yPos);
+            numericUpDownRooms.Size = new Size(controlWidth, 25);
+            numericUpDownRooms.Minimum = 1;
+            numericUpDownRooms.Maximum = 10;
+            numericUpDownRooms.Value = 2;
+            groupBoxMain.Controls.Add(numericUpDownRooms);
+
+            yPos += spacing;
+
+            // Фамилия
+            labelSurname = new Label();
+            labelSurname.Text = "Фамилия:";
+            labelSurname.Location = new Point(20, yPos);
+            labelSurname.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelSurname);
+
+            textBoxSurname = new TextBox();
+            textBoxSurname.Location = new Point(180, yPos);
+            textBoxSurname.Size = new Size(controlWidth, 25);
+            groupBoxMain.Controls.Add(textBoxSurname);
+
+            yPos += spacing;
+
+            // Дата прописки
+            labelRegistrationDate = new Label();
+            labelRegistrationDate.Text = "Дата прописки:";
+            labelRegistrationDate.Location = new Point(20, yPos);
+            labelRegistrationDate.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelRegistrationDate);
+
+            dateTimePickerRegistration = new DateTimePicker();
+            dateTimePickerRegistration.Location = new Point(180, yPos);
+            dateTimePickerRegistration.Size = new Size(controlWidth, 25);
+            dateTimePickerRegistration.Format = DateTimePickerFormat.Short;
+            groupBoxMain.Controls.Add(dateTimePickerRegistration);
+
+            yPos += spacing;
+
+            // Членов семьи
+            labelFamily = new Label();
+            labelFamily.Text = "Членов семьи:";
+            labelFamily.Location = new Point(20, yPos);
+            labelFamily.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelFamily);
+
+            numericUpDownFamily = new NumericUpDown();
+            numericUpDownFamily.Location = new Point(180, yPos);
+            numericUpDownFamily.Size = new Size(controlWidth, 25);
+            numericUpDownFamily.Minimum = 1;
+            numericUpDownFamily.Maximum = 20;
+            numericUpDownFamily.Value = 2;
+            groupBoxMain.Controls.Add(numericUpDownFamily);
+
+            yPos += spacing;
+
+            // Детей
+            labelChildren = new Label();
+            labelChildren.Text = "Детей:";
+            labelChildren.Location = new Point(20, yPos);
+            labelChildren.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelChildren);
+
+            numericUpDownChildren = new NumericUpDown();
+            numericUpDownChildren.Location = new Point(180, yPos);
+            numericUpDownChildren.Size = new Size(controlWidth, 25);
+            numericUpDownChildren.Minimum = 0;
+            numericUpDownChildren.Maximum = 10;
+            numericUpDownChildren.Value = 0;
+            groupBoxMain.Controls.Add(numericUpDownChildren);
+
+            yPos += spacing;
+
+            // Долг
+            labelDebt = new Label();
+            labelDebt.Text = "Задолженность:";
+            labelDebt.Location = new Point(20, yPos);
+            labelDebt.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelDebt);
+
+            checkBoxDebt = new CheckBox();
+            checkBoxDebt.Location = new Point(180, yPos);
+            checkBoxDebt.Size = new Size(150, 25);
+            checkBoxDebt.Text = "Есть задолженность";
+            groupBoxMain.Controls.Add(checkBoxDebt);
+
+            yPos += spacing;
+
+            // Примечание
+            labelNotes = new Label();
+            labelNotes.Text = "Примечание:";
+            labelNotes.Location = new Point(20, yPos);
+            labelNotes.Size = new Size(labelWidth, 25);
+            groupBoxMain.Controls.Add(labelNotes);
+
+            textBoxNotes = new TextBox();
+            textBoxNotes.Location = new Point(180, yPos);
+            textBoxNotes.Size = new Size(controlWidth, 60);
+            textBoxNotes.Multiline = true;
+            textBoxNotes.ScrollBars = ScrollBars.Vertical;
+            groupBoxMain.Controls.Add(textBoxNotes);
+
+            // Панель кнопок
+            panelButtons = new Panel();
+            panelButtons.Dock = DockStyle.Bottom;
+            panelButtons.Height = 60;
+            panelButtons.Padding = new Padding(20);
+
+            buttonSave = new Button();
+            buttonSave.Text = "Сохранить";
+            buttonSave.Location = new Point(120, 10);
+            buttonSave.Size = new Size(120, 40);
+            buttonSave.BackColor = Color.DodgerBlue;
+            buttonSave.ForeColor = Color.White;
+            buttonSave.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+            buttonSave.Click += ButtonSave_Click;
+
+            buttonCancel = new Button();
+            buttonCancel.Text = "Отмена";
+            buttonCancel.Location = new Point(260, 10);
+            buttonCancel.Size = new Size(120, 40);
+            buttonCancel.Click += ButtonCancel_Click;
+
+            panelButtons.Controls.Add(buttonSave);
+            panelButtons.Controls.Add(buttonCancel);
+            this.Controls.Add(panelButtons);
+        }
+
+        private void SetupForm()
+        {
+            this.Text = isEditMode ? "Редактирование квартиры" : "Добавление новой квартиры";
+            labelTitle.Text = isEditMode ? "Редактирование квартиры" : "Добавление новой квартиры";
+            dateTimePickerRegistration.Value = DateTime.Now;
+        }
+
+        private void FillForm()
+        {
+            numericUpDownEntrance.Value = apartment.EntranceNumber;
+            numericUpDownApartmentNum.Value = apartment.ApartmentNumber;
+            numericUpDownTotalArea.Value = (decimal)apartment.TotalArea;
+            numericUpDownLivingArea.Value = (decimal)apartment.LivingArea;
+            numericUpDownRooms.Value = apartment.RoomsCount;
+            textBoxSurname.Text = apartment.TenantSurname;
+            dateTimePickerRegistration.Value = apartment.RegistrationDate;
+            numericUpDownFamily.Value = apartment.FamilyMembers;
+            numericUpDownChildren.Value = apartment.ChildrenCount;
+            checkBoxDebt.Checked = apartment.HasDebt;
+            textBoxNotes.Text = apartment.Notes;
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            if (ValidateForm())
+            {
+                SaveData();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private bool ValidateForm()
+        {
+            if (string.IsNullOrWhiteSpace(textBoxSurname.Text))
+            {
+                MessageBox.Show("Введите фамилию квартиросъемщика", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxSurname.Focus();
+                return false;
+            }
+
+            if ((double)numericUpDownLivingArea.Value > (double)numericUpDownTotalArea.Value)
+            {
+                MessageBox.Show("Жилая площадь не может быть больше общей", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numericUpDownLivingArea.Focus();
+                return false;
+            }
+
+            if ((int)numericUpDownChildren.Value > (int)numericUpDownFamily.Value)
+            {
+                MessageBox.Show("Количество детей не может превышать количество членов семьи", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numericUpDownChildren.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SaveData()
+        {
+            apartment.EntranceNumber = (int)numericUpDownEntrance.Value;
+            apartment.ApartmentNumber = (int)numericUpDownApartmentNum.Value;
+            apartment.TotalArea = (double)numericUpDownTotalArea.Value;
+            apartment.LivingArea = (double)numericUpDownLivingArea.Value;
+            apartment.RoomsCount = (int)numericUpDownRooms.Value;
+            apartment.TenantSurname = textBoxSurname.Text.Trim();
+            apartment.RegistrationDate = dateTimePickerRegistration.Value;
+            apartment.FamilyMembers = (int)numericUpDownFamily.Value;
+            apartment.ChildrenCount = (int)numericUpDownChildren.Value;
+            apartment.HasDebt = checkBoxDebt.Checked;
+            apartment.Notes = textBoxNotes.Text.Trim();
+        }
+
+        public DataService.Apartment GetApartment()
+        {
+            return apartment;
         }
     }
 }
