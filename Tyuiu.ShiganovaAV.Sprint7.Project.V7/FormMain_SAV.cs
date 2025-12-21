@@ -2,8 +2,15 @@
 {
     partial class FormMain_SAV
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -15,610 +22,667 @@
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             menuStripMain_SAV = new MenuStrip();
-            файлToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItemOpen_SAV = new ToolStripMenuItem();
-            toolStripMenuItemSave_SAV = new ToolStripMenuItem();
-            toolStripMenuItemExit_SAV = new ToolStripMenuItem();
-            справкаToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItemAbout_SAV = new ToolStripMenuItem();
-            toolStripMenuItemHelp_SAV = new ToolStripMenuItem();
-            toolStripMain_SAV = new ToolStrip();
-            buttonLoadFile_SAV = new ToolStripButton();
-            buttonSaveFile_SAV = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
-            buttonAddApartment_SAV = new ToolStripButton();
-            buttonEditApartment_SAV = new ToolStripButton();
-            buttonDeleteApartment_SAV = new ToolStripButton();
-            toolStripSeparator2 = new ToolStripSeparator();
-            buttonExportStats_SAV = new ToolStripButton();
-            toolStripSeparator3 = new ToolStripSeparator();
-            buttonHelp_SAV = new ToolStripButton();
-            buttonAbout_SAV = new ToolStripButton();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem_SAV = new ToolStripMenuItem();
+            saveToolStripMenuItem_SAV = new ToolStripMenuItem();
+            toolStripSeparator1_SAV = new ToolStripSeparator();
+            exitToolStripMenuItem_SAV = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            addApartmentToolStripMenuItem_SAV = new ToolStripMenuItem();
+            editApartmentToolStripMenuItem_SAV = new ToolStripMenuItem();
+            deleteApartmentToolStripMenuItem_SAV = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem_SAV = new ToolStripMenuItem();
+            guideToolStripMenuItem_SAV = new ToolStripMenuItem();
             statusStripMain_SAV = new StatusStrip();
             toolStripStatusLabelInfo_SAV = new ToolStripStatusLabel();
-            splitContainerMain_SAV = new SplitContainer();
-            panelLeft_SAV = new Panel();
+            splitContainerMain = new SplitContainer();
+            tabControlMain = new TabControl();
+            tabPageData = new TabPage();
             dataGridViewApartments_SAV = new DataGridView();
+            tabPageFilters = new TabPage();
+            panelFilters = new Panel();
+            groupBoxSearch_SAV = new GroupBox();
+            buttonSearch_SAV = new Button();
+            textBoxSearch_SAV = new TextBox();
+            labelSearch_SAV = new Label();
             groupBoxFilters_SAV = new GroupBox();
+            buttonClearFilters_SAV = new Button();
             buttonApplyFilters_SAV = new Button();
             checkBoxAscending_SAV = new CheckBox();
             comboBoxSortBy_SAV = new ComboBox();
-            labelSortBy_SAV = new Label();
+            labelSort_SAV = new Label();
             comboBoxFilterDebt_SAV = new ComboBox();
             labelFilterDebt_SAV = new Label();
             comboBoxFilterEntrance_SAV = new ComboBox();
             labelFilterEntrance_SAV = new Label();
-            groupBoxSearch_SAV = new GroupBox();
-            buttonSearch_SAV = new Button();
-            textBoxSearch_SAV = new TextBox();
-            panelRight_SAV = new Panel();
-            groupBoxChart_SAV = new GroupBox();
-            chartStatistics_SAV = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            groupBoxStatistics_SAV = new GroupBox();
-            labelTotalRooms_SAV = new Label();
-            labelAvgFamily_SAV = new Label();
-            labelTotalChildren_SAV = new Label();
-            labelDebtors_SAV = new Label();
-            labelAvgArea_SAV = new Label();
-            labelTotalArea_SAV = new Label();
+            tabPageStats = new TabPage();
+            groupBoxStats_SAV = new GroupBox();
+            tableLayoutPanelStats_SAV = new TableLayoutPanel();
             labelTotalApartments_SAV = new Label();
+            labelTotalArea_SAV = new Label();
+            labelAvgArea_SAV = new Label();
+            labelDebtors_SAV = new Label();
+            labelTotalChildren_SAV = new Label();
+            labelAvgFamily_SAV = new Label();
+            labelTotalRooms_SAV = new Label();
+            panelButtons_SAV = new Panel();
+            buttonExportStats_SAV = new Button();
+            buttonDeleteApartment_SAV = new Button();
+            buttonEditApartment_SAV = new Button();
+            buttonAddApartment_SAV = new Button();
+            buttonSaveFile_SAV = new Button();
+            buttonLoadFile_SAV = new Button();
+            chartStatistics_SAV = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            toolTip_SAV = new ToolTip(components);
             menuStripMain_SAV.SuspendLayout();
-            toolStripMain_SAV.SuspendLayout();
             statusStripMain_SAV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerMain_SAV).BeginInit();
-            splitContainerMain_SAV.Panel1.SuspendLayout();
-            splitContainerMain_SAV.Panel2.SuspendLayout();
-            splitContainerMain_SAV.SuspendLayout();
-            panelLeft_SAV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
+            splitContainerMain.Panel1.SuspendLayout();
+            splitContainerMain.Panel2.SuspendLayout();
+            splitContainerMain.SuspendLayout();
+            tabControlMain.SuspendLayout();
+            tabPageData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewApartments_SAV).BeginInit();
-            groupBoxFilters_SAV.SuspendLayout();
+            tabPageFilters.SuspendLayout();
+            panelFilters.SuspendLayout();
             groupBoxSearch_SAV.SuspendLayout();
-            panelRight_SAV.SuspendLayout();
-            groupBoxChart_SAV.SuspendLayout();
+            groupBoxFilters_SAV.SuspendLayout();
+            tabPageStats.SuspendLayout();
+            groupBoxStats_SAV.SuspendLayout();
+            tableLayoutPanelStats_SAV.SuspendLayout();
+            panelButtons_SAV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartStatistics_SAV).BeginInit();
-            groupBoxStatistics_SAV.SuspendLayout();
             SuspendLayout();
-            // 
-            // menuStripMain_SAV
-            // 
             menuStripMain_SAV.ImageScalingSize = new Size(20, 20);
-            menuStripMain_SAV.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, справкаToolStripMenuItem });
+            menuStripMain_SAV.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, helpToolStripMenuItem });
             menuStripMain_SAV.Location = new Point(0, 0);
             menuStripMain_SAV.Name = "menuStripMain_SAV";
-            menuStripMain_SAV.Size = new Size(1200, 28);
+            menuStripMain_SAV.Padding = new Padding(8, 2, 0, 2);
+            menuStripMain_SAV.Size = new Size(1282, 28);
             menuStripMain_SAV.TabIndex = 0;
             menuStripMain_SAV.Text = "menuStripMain_SAV";
-            // 
-            // файлToolStripMenuItem
-            // 
-            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemOpen_SAV, toolStripMenuItemSave_SAV, toolStripMenuItemExit_SAV });
-            файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            файлToolStripMenuItem.Size = new Size(59, 24);
-            файлToolStripMenuItem.Text = "Файл";
-            // 
-            // toolStripMenuItemOpen_SAV
-            // 
-            toolStripMenuItemOpen_SAV.Name = "toolStripMenuItemOpen_SAV";
-            toolStripMenuItemOpen_SAV.ShortcutKeys = Keys.Control | Keys.O;
-            toolStripMenuItemOpen_SAV.Size = new Size(216, 26);
-            toolStripMenuItemOpen_SAV.Text = "Открыть";
-            toolStripMenuItemOpen_SAV.Click += toolStripMenuItemOpen_SAV_Click;
-            // 
-            // toolStripMenuItemSave_SAV
-            // 
-            toolStripMenuItemSave_SAV.Name = "toolStripMenuItemSave_SAV";
-            toolStripMenuItemSave_SAV.ShortcutKeys = Keys.Control | Keys.S;
-            toolStripMenuItemSave_SAV.Size = new Size(216, 26);
-            toolStripMenuItemSave_SAV.Text = "Сохранить";
-            toolStripMenuItemSave_SAV.Click += toolStripMenuItemSave_SAV_Click;
-            // 
-            // toolStripMenuItemExit_SAV
-            // 
-            toolStripMenuItemExit_SAV.Name = "toolStripMenuItemExit_SAV";
-            toolStripMenuItemExit_SAV.ShortcutKeys = Keys.Alt | Keys.F4;
-            toolStripMenuItemExit_SAV.Size = new Size(216, 26);
-            toolStripMenuItemExit_SAV.Text = "Выход";
-            toolStripMenuItemExit_SAV.Click += toolStripMenuItemExit_SAV_Click;
-            // 
-            // справкаToolStripMenuItem
-            // 
-            справкаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAbout_SAV, toolStripMenuItemHelp_SAV });
-            справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            справкаToolStripMenuItem.Size = new Size(81, 24);
-            справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // toolStripMenuItemAbout_SAV
-            // 
-            toolStripMenuItemAbout_SAV.Name = "toolStripMenuItemAbout_SAV";
-            toolStripMenuItemAbout_SAV.Size = new Size(187, 26);
-            toolStripMenuItemAbout_SAV.Text = "О программе";
-            toolStripMenuItemAbout_SAV.Click += buttonAbout_SAV_Click;
-            // 
-            // toolStripMenuItemHelp_SAV
-            // 
-            toolStripMenuItemHelp_SAV.Name = "toolStripMenuItemHelp_SAV";
-            toolStripMenuItemHelp_SAV.Size = new Size(187, 26);
-            toolStripMenuItemHelp_SAV.Text = "Помощь";
-            toolStripMenuItemHelp_SAV.Click += buttonHelp_SAV_Click;
-            // 
-            // toolStripMain_SAV
-            // 
-            toolStripMain_SAV.ImageScalingSize = new Size(20, 20);
-            toolStripMain_SAV.Items.AddRange(new ToolStripItem[] { buttonLoadFile_SAV, buttonSaveFile_SAV, toolStripSeparator1, buttonAddApartment_SAV, buttonEditApartment_SAV, buttonDeleteApartment_SAV, toolStripSeparator2, buttonExportStats_SAV, toolStripSeparator3, buttonHelp_SAV, buttonAbout_SAV });
-            toolStripMain_SAV.Location = new Point(0, 28);
-            toolStripMain_SAV.Name = "toolStripMain_SAV";
-            toolStripMain_SAV.Size = new Size(1200, 27);
-            toolStripMain_SAV.TabIndex = 1;
-            toolStripMain_SAV.Text = "toolStripMain_SAV";
-            // 
-            // buttonLoadFile_SAV
-            // 
-            buttonLoadFile_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonLoadFile_SAV.ImageTransparentColor = Color.Magenta;
-            buttonLoadFile_SAV.Name = "buttonLoadFile_SAV";
-            buttonLoadFile_SAV.Size = new Size(81, 24);
-            buttonLoadFile_SAV.Text = "Загрузить";
-            buttonLoadFile_SAV.Click += buttonLoadFile_SAV_Click;
-            // 
-            // buttonSaveFile_SAV
-            // 
-            buttonSaveFile_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonSaveFile_SAV.Enabled = false;
-            buttonSaveFile_SAV.ImageTransparentColor = Color.Magenta;
-            buttonSaveFile_SAV.Name = "buttonSaveFile_SAV";
-            buttonSaveFile_SAV.Size = new Size(87, 24);
-            buttonSaveFile_SAV.Text = "Сохранить";
-            buttonSaveFile_SAV.Click += buttonSaveFile_SAV_Click;
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 27);
-            // 
-            // buttonAddApartment_SAV
-            // 
-            buttonAddApartment_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonAddApartment_SAV.Enabled = false;
-            buttonAddApartment_SAV.ImageTransparentColor = Color.Magenta;
-            buttonAddApartment_SAV.Name = "buttonAddApartment_SAV";
-            buttonAddApartment_SAV.Size = new Size(80, 24);
-            buttonAddApartment_SAV.Text = "Добавить";
-            buttonAddApartment_SAV.Click += buttonAddApartment_SAV_Click;
-            // 
-            // buttonEditApartment_SAV
-            // 
-            buttonEditApartment_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonEditApartment_SAV.Enabled = false;
-            buttonEditApartment_SAV.ImageTransparentColor = Color.Magenta;
-            buttonEditApartment_SAV.Name = "buttonEditApartment_SAV";
-            buttonEditApartment_SAV.Size = new Size(82, 24);
-            buttonEditApartment_SAV.Text = "Изменить";
-            buttonEditApartment_SAV.Click += buttonEditApartment_SAV_Click;
-            // 
-            // buttonDeleteApartment_SAV
-            // 
-            buttonDeleteApartment_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonDeleteApartment_SAV.Enabled = false;
-            buttonDeleteApartment_SAV.ImageTransparentColor = Color.Magenta;
-            buttonDeleteApartment_SAV.Name = "buttonDeleteApartment_SAV";
-            buttonDeleteApartment_SAV.Size = new Size(69, 24);
-            buttonDeleteApartment_SAV.Text = "Удалить";
-            buttonDeleteApartment_SAV.Click += buttonDeleteApartment_SAV_Click;
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 27);
-            // 
-            // buttonExportStats_SAV
-            // 
-            buttonExportStats_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonExportStats_SAV.Enabled = false;
-            buttonExportStats_SAV.ImageTransparentColor = Color.Magenta;
-            buttonExportStats_SAV.Name = "buttonExportStats_SAV";
-            buttonExportStats_SAV.Size = new Size(147, 24);
-            buttonExportStats_SAV.Text = "Экспорт статистики";
-            buttonExportStats_SAV.Click += buttonExportStats_SAV_Click;
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 27);
-            // 
-            // buttonHelp_SAV
-            // 
-            buttonHelp_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonHelp_SAV.ImageTransparentColor = Color.Magenta;
-            buttonHelp_SAV.Name = "buttonHelp_SAV";
-            buttonHelp_SAV.Size = new Size(71, 24);
-            buttonHelp_SAV.Text = "Справка";
-            buttonHelp_SAV.Click += buttonHelp_SAV_Click;
-            // 
-            // buttonAbout_SAV
-            // 
-            buttonAbout_SAV.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            buttonAbout_SAV.ImageTransparentColor = Color.Magenta;
-            buttonAbout_SAV.Name = "buttonAbout_SAV";
-            buttonAbout_SAV.Size = new Size(108, 24);
-            buttonAbout_SAV.Text = "О программе";
-            buttonAbout_SAV.Click += buttonAbout_SAV_Click;
-            // 
-            // statusStripMain_SAV
-            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem_SAV, saveToolStripMenuItem_SAV, toolStripSeparator1_SAV, exitToolStripMenuItem_SAV });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(59, 24);
+            fileToolStripMenuItem.Text = "Файл";
+            openToolStripMenuItem_SAV.Name = "openToolStripMenuItem_SAV";
+            openToolStripMenuItem_SAV.ShortcutKeys = Keys.Control | Keys.O;
+            openToolStripMenuItem_SAV.Size = new Size(224, 26);
+            openToolStripMenuItem_SAV.Text = "Открыть";
+            openToolStripMenuItem_SAV.Click += buttonLoadFile_SAV_Click;
+            saveToolStripMenuItem_SAV.Name = "saveToolStripMenuItem_SAV";
+            saveToolStripMenuItem_SAV.ShortcutKeys = Keys.Control | Keys.S;
+            saveToolStripMenuItem_SAV.Size = new Size(224, 26);
+            saveToolStripMenuItem_SAV.Text = "Сохранить";
+            saveToolStripMenuItem_SAV.Click += buttonSaveFile_SAV_Click;
+            toolStripSeparator1_SAV.Name = "toolStripSeparator1_SAV";
+            toolStripSeparator1_SAV.Size = new Size(221, 6);
+            exitToolStripMenuItem_SAV.Name = "exitToolStripMenuItem_SAV";
+            exitToolStripMenuItem_SAV.ShortcutKeys = Keys.Alt | Keys.F4;
+            exitToolStripMenuItem_SAV.Size = new Size(224, 26);
+            exitToolStripMenuItem_SAV.Text = "Выход";
+            exitToolStripMenuItem_SAV.Click += ExitToolStripMenuItem_SAV_Click;
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addApartmentToolStripMenuItem_SAV, editApartmentToolStripMenuItem_SAV, deleteApartmentToolStripMenuItem_SAV });
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(137, 24);
+            editToolStripMenuItem.Text = "Редактирование";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
+            addApartmentToolStripMenuItem_SAV.Name = "addApartmentToolStripMenuItem_SAV";
+            addApartmentToolStripMenuItem_SAV.ShortcutKeys = Keys.Control | Keys.N;
+            addApartmentToolStripMenuItem_SAV.Size = new Size(311, 26);
+            addApartmentToolStripMenuItem_SAV.Text = "Добавить квартиру";
+            addApartmentToolStripMenuItem_SAV.Click += buttonAddApartment_SAV_Click;
+            editApartmentToolStripMenuItem_SAV.Name = "editApartmentToolStripMenuItem_SAV";
+            editApartmentToolStripMenuItem_SAV.ShortcutKeys = Keys.Control | Keys.E;
+            editApartmentToolStripMenuItem_SAV.Size = new Size(311, 26);
+            editApartmentToolStripMenuItem_SAV.Text = "Редактировать квартиру";
+            editApartmentToolStripMenuItem_SAV.Click += buttonEditApartment_SAV_Click;
+            deleteApartmentToolStripMenuItem_SAV.Name = "deleteApartmentToolStripMenuItem_SAV";
+            deleteApartmentToolStripMenuItem_SAV.ShortcutKeys = Keys.Delete;
+            deleteApartmentToolStripMenuItem_SAV.Size = new Size(311, 26);
+            deleteApartmentToolStripMenuItem_SAV.Text = "Удалить квартиру";
+            deleteApartmentToolStripMenuItem_SAV.Click += buttonDeleteApartment_SAV_Click;
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem_SAV, guideToolStripMenuItem_SAV });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(81, 24);
+            helpToolStripMenuItem.Text = "Справка";
+            aboutToolStripMenuItem_SAV.Name = "aboutToolStripMenuItem_SAV";
+            aboutToolStripMenuItem_SAV.Size = new Size(224, 26);
+            aboutToolStripMenuItem_SAV.Text = "О программе";
+            aboutToolStripMenuItem_SAV.Click += AboutToolStripMenuItem_SAV_Click;
+            guideToolStripMenuItem_SAV.Name = "guideToolStripMenuItem_SAV";
+            guideToolStripMenuItem_SAV.Size = new Size(224, 26);
+            guideToolStripMenuItem_SAV.Text = "Руководство";
+            guideToolStripMenuItem_SAV.Click += GuideToolStripMenuItem_SAV_Click;
             statusStripMain_SAV.ImageScalingSize = new Size(20, 20);
             statusStripMain_SAV.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelInfo_SAV });
-            statusStripMain_SAV.Location = new Point(0, 849);
+            statusStripMain_SAV.Location = new Point(0, 885);
             statusStripMain_SAV.Name = "statusStripMain_SAV";
-            statusStripMain_SAV.Size = new Size(1200, 26);
-            statusStripMain_SAV.TabIndex = 2;
+            statusStripMain_SAV.Padding = new Padding(1, 0, 19, 0);
+            statusStripMain_SAV.Size = new Size(1282, 26);
+            statusStripMain_SAV.TabIndex = 1;
             statusStripMain_SAV.Text = "statusStripMain_SAV";
-            // 
-            // toolStripStatusLabelInfo_SAV
-            // 
             toolStripStatusLabelInfo_SAV.Name = "toolStripStatusLabelInfo_SAV";
-            toolStripStatusLabelInfo_SAV.Size = new Size(1185, 20);
+            toolStripStatusLabelInfo_SAV.Size = new Size(1262, 20);
             toolStripStatusLabelInfo_SAV.Spring = true;
-            toolStripStatusLabelInfo_SAV.Text = "Готов к работе";
+            toolStripStatusLabelInfo_SAV.Text = "Готово к работе";
             toolStripStatusLabelInfo_SAV.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // splitContainerMain_SAV
-            // 
-            splitContainerMain_SAV.Dock = DockStyle.Fill;
-            splitContainerMain_SAV.Location = new Point(0, 55);
-            splitContainerMain_SAV.Margin = new Padding(3, 4, 3, 4);
-            splitContainerMain_SAV.Name = "splitContainerMain_SAV";
-            // 
-            // splitContainerMain_SAV.Panel1
-            // 
-            splitContainerMain_SAV.Panel1.Controls.Add(panelLeft_SAV);
-            // 
-            // splitContainerMain_SAV.Panel2
-            // 
-            splitContainerMain_SAV.Panel2.Controls.Add(panelRight_SAV);
-            splitContainerMain_SAV.Size = new Size(1200, 794);
-            splitContainerMain_SAV.SplitterDistance = 800;
-            splitContainerMain_SAV.TabIndex = 3;
-            // 
-            // panelLeft_SAV
-            // 
-            panelLeft_SAV.Controls.Add(dataGridViewApartments_SAV);
-            panelLeft_SAV.Controls.Add(groupBoxFilters_SAV);
-            panelLeft_SAV.Controls.Add(groupBoxSearch_SAV);
-            panelLeft_SAV.Dock = DockStyle.Fill;
-            panelLeft_SAV.Location = new Point(0, 0);
-            panelLeft_SAV.Margin = new Padding(3, 4, 3, 4);
-            panelLeft_SAV.Name = "panelLeft_SAV";
-            panelLeft_SAV.Padding = new Padding(10, 12, 10, 12);
-            panelLeft_SAV.Size = new Size(800, 794);
-            panelLeft_SAV.TabIndex = 0;
-            // 
-            // dataGridViewApartments_SAV
-            // 
+            splitContainerMain.Dock = DockStyle.Fill;
+            splitContainerMain.Location = new Point(0, 28);
+            splitContainerMain.Margin = new Padding(4, 5, 4, 5);
+            splitContainerMain.Name = "splitContainerMain";
+            splitContainerMain.Panel1.Controls.Add(tabControlMain);
+            splitContainerMain.Panel1.Controls.Add(panelButtons_SAV);
+            splitContainerMain.Panel1MinSize = 800;
+            splitContainerMain.Panel2.Controls.Add(chartStatistics_SAV);
+            splitContainerMain.Panel2MinSize = 400;
+            splitContainerMain.Size = new Size(1282, 857);
+            splitContainerMain.SplitterDistance = 800;
+            splitContainerMain.SplitterWidth = 5;
+            splitContainerMain.TabIndex = 2;
+            tabControlMain.Controls.Add(tabPageData);
+            tabControlMain.Controls.Add(tabPageFilters);
+            tabControlMain.Controls.Add(tabPageStats);
+            tabControlMain.Dock = DockStyle.Fill;
+            tabControlMain.Location = new Point(0, 0);
+            tabControlMain.Margin = new Padding(4, 5, 4, 5);
+            tabControlMain.Name = "tabControlMain";
+            tabControlMain.SelectedIndex = 0;
+            tabControlMain.Size = new Size(800, 757);
+            tabControlMain.TabIndex = 0;
+            tabPageData.Controls.Add(dataGridViewApartments_SAV);
+            tabPageData.Location = new Point(4, 29);
+            tabPageData.Margin = new Padding(4, 5, 4, 5);
+            tabPageData.Name = "tabPageData";
+            tabPageData.Padding = new Padding(4, 5, 4, 5);
+            tabPageData.Size = new Size(792, 724);
+            tabPageData.TabIndex = 0;
+            tabPageData.Text = "Данные квартир";
+            tabPageData.UseVisualStyleBackColor = true;
             dataGridViewApartments_SAV.AllowUserToAddRows = false;
             dataGridViewApartments_SAV.AllowUserToDeleteRows = false;
             dataGridViewApartments_SAV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewApartments_SAV.BackgroundColor = Color.White;
+            dataGridViewApartments_SAV.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewApartments_SAV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewApartments_SAV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewApartments_SAV.Dock = DockStyle.Fill;
-            dataGridViewApartments_SAV.Location = new Point(10, 222);
-            dataGridViewApartments_SAV.Margin = new Padding(3, 4, 3, 4);
-            dataGridViewApartments_SAV.MultiSelect = false;
+            dataGridViewApartments_SAV.Location = new Point(4, 5);
+            dataGridViewApartments_SAV.Margin = new Padding(4, 5, 4, 5);
             dataGridViewApartments_SAV.Name = "dataGridViewApartments_SAV";
             dataGridViewApartments_SAV.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewApartments_SAV.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewApartments_SAV.RowHeadersWidth = 51;
-            dataGridViewApartments_SAV.RowTemplate.Height = 24;
             dataGridViewApartments_SAV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewApartments_SAV.Size = new Size(780, 560);
-            dataGridViewApartments_SAV.TabIndex = 2;
+            dataGridViewApartments_SAV.Size = new Size(784, 714);
+            dataGridViewApartments_SAV.TabIndex = 0;
             dataGridViewApartments_SAV.SelectionChanged += dataGridViewApartments_SAV_SelectionChanged;
-            // 
-            // groupBoxFilters_SAV
-            // 
+            tabPageFilters.Controls.Add(panelFilters);
+            tabPageFilters.Location = new Point(4, 29);
+            tabPageFilters.Margin = new Padding(4, 5, 4, 5);
+            tabPageFilters.Name = "tabPageFilters";
+            tabPageFilters.Padding = new Padding(4, 5, 4, 5);
+            tabPageFilters.Size = new Size(792, 724);
+            tabPageFilters.TabIndex = 1;
+            tabPageFilters.Text = "Фильтры и поиск";
+            tabPageFilters.UseVisualStyleBackColor = true;
+            panelFilters.Controls.Add(groupBoxSearch_SAV);
+            panelFilters.Controls.Add(groupBoxFilters_SAV);
+            panelFilters.Dock = DockStyle.Fill;
+            panelFilters.Location = new Point(4, 5);
+            panelFilters.Margin = new Padding(4, 5, 4, 5);
+            panelFilters.Name = "panelFilters";
+            panelFilters.Size = new Size(784, 714);
+            panelFilters.TabIndex = 0;
+            groupBoxSearch_SAV.Controls.Add(buttonSearch_SAV);
+            groupBoxSearch_SAV.Controls.Add(textBoxSearch_SAV);
+            groupBoxSearch_SAV.Controls.Add(labelSearch_SAV);
+            groupBoxSearch_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            groupBoxSearch_SAV.Location = new Point(20, 350);
+            groupBoxSearch_SAV.Margin = new Padding(4, 5, 4, 5);
+            groupBoxSearch_SAV.Name = "groupBoxSearch_SAV";
+            groupBoxSearch_SAV.Padding = new Padding(4, 5, 4, 5);
+            groupBoxSearch_SAV.Size = new Size(740, 200);
+            groupBoxSearch_SAV.TabIndex = 1;
+            groupBoxSearch_SAV.TabStop = false;
+            groupBoxSearch_SAV.Text = "Поиск";
+
+            buttonSearch_SAV.BackColor = Color.SteelBlue;
+            buttonSearch_SAV.FlatStyle = FlatStyle.Flat;
+            buttonSearch_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonSearch_SAV.ForeColor = Color.White;
+            buttonSearch_SAV.Location = new Point(300, 130);
+            buttonSearch_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonSearch_SAV.Name = "buttonSearch_SAV";
+            buttonSearch_SAV.Size = new Size(125, 50);
+            buttonSearch_SAV.TabIndex = 2;
+            buttonSearch_SAV.Text = "Найти";
+            toolTip_SAV.SetToolTip(buttonSearch_SAV, "Поиск по фамилии (Enter)");
+            buttonSearch_SAV.UseVisualStyleBackColor = false;
+            buttonSearch_SAV.Click += buttonSearch_SAV_Click;
+
+            textBoxSearch_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxSearch_SAV.Location = new Point(300, 60);
+            textBoxSearch_SAV.Margin = new Padding(4, 5, 4, 5);
+            textBoxSearch_SAV.Name = "textBoxSearch_SAV";
+            textBoxSearch_SAV.Size = new Size(300, 27);
+            textBoxSearch_SAV.TabIndex = 1;
+            toolTip_SAV.SetToolTip(textBoxSearch_SAV, "Введите фамилию для поиска");
+            textBoxSearch_SAV.KeyPress += textBoxSearch_SAV_KeyPress;
+
+            labelSearch_SAV.AutoSize = true;
+            labelSearch_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelSearch_SAV.Location = new Point(296, 30);
+            labelSearch_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelSearch_SAV.Name = "labelSearch_SAV";
+            labelSearch_SAV.Size = new Size(92, 20);
+            labelSearch_SAV.TabIndex = 0;
+            labelSearch_SAV.Text = "Фамилия:";
+
+            groupBoxFilters_SAV.Controls.Add(buttonClearFilters_SAV);
             groupBoxFilters_SAV.Controls.Add(buttonApplyFilters_SAV);
             groupBoxFilters_SAV.Controls.Add(checkBoxAscending_SAV);
             groupBoxFilters_SAV.Controls.Add(comboBoxSortBy_SAV);
-            groupBoxFilters_SAV.Controls.Add(labelSortBy_SAV);
+            groupBoxFilters_SAV.Controls.Add(labelSort_SAV);
             groupBoxFilters_SAV.Controls.Add(comboBoxFilterDebt_SAV);
             groupBoxFilters_SAV.Controls.Add(labelFilterDebt_SAV);
             groupBoxFilters_SAV.Controls.Add(comboBoxFilterEntrance_SAV);
             groupBoxFilters_SAV.Controls.Add(labelFilterEntrance_SAV);
-            groupBoxFilters_SAV.Dock = DockStyle.Top;
-            groupBoxFilters_SAV.Location = new Point(10, 84);
-            groupBoxFilters_SAV.Margin = new Padding(3, 4, 3, 4);
+            groupBoxFilters_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            groupBoxFilters_SAV.Location = new Point(20, 30);
+            groupBoxFilters_SAV.Margin = new Padding(4, 5, 4, 5);
             groupBoxFilters_SAV.Name = "groupBoxFilters_SAV";
-            groupBoxFilters_SAV.Padding = new Padding(3, 4, 3, 4);
-            groupBoxFilters_SAV.Size = new Size(780, 138);
-            groupBoxFilters_SAV.TabIndex = 1;
+            groupBoxFilters_SAV.Padding = new Padding(4, 5, 4, 5);
+            groupBoxFilters_SAV.Size = new Size(740, 300);
+            groupBoxFilters_SAV.TabIndex = 0;
             groupBoxFilters_SAV.TabStop = false;
             groupBoxFilters_SAV.Text = "Фильтры и сортировка";
-            // 
-            // buttonApplyFilters_SAV
-            // 
-            buttonApplyFilters_SAV.Enabled = false;
-            buttonApplyFilters_SAV.Location = new Point(650, 88);
-            buttonApplyFilters_SAV.Margin = new Padding(3, 4, 3, 4);
+
+            buttonClearFilters_SAV.BackColor = Color.LightGray;
+            buttonClearFilters_SAV.FlatStyle = FlatStyle.Flat;
+            buttonClearFilters_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonClearFilters_SAV.Location = new Point(400, 231);
+            buttonClearFilters_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonClearFilters_SAV.Name = "buttonClearFilters_SAV";
+            buttonClearFilters_SAV.Size = new Size(125, 50);
+            buttonClearFilters_SAV.TabIndex = 8;
+            buttonClearFilters_SAV.Text = "Сбросить";
+            toolTip_SAV.SetToolTip(buttonClearFilters_SAV, "Сбросить все фильтры");
+            buttonClearFilters_SAV.UseVisualStyleBackColor = false;
+            buttonClearFilters_SAV.Click += buttonClearFilters_SAV_Click;
+
+            buttonApplyFilters_SAV.BackColor = Color.SteelBlue;
+            buttonApplyFilters_SAV.FlatStyle = FlatStyle.Flat;
+            buttonApplyFilters_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonApplyFilters_SAV.ForeColor = Color.White;
+            buttonApplyFilters_SAV.Location = new Point(200, 231);
+            buttonApplyFilters_SAV.Margin = new Padding(4, 5, 4, 5);
             buttonApplyFilters_SAV.Name = "buttonApplyFilters_SAV";
-            buttonApplyFilters_SAV.Size = new Size(120, 38);
+            buttonApplyFilters_SAV.Size = new Size(125, 50);
             buttonApplyFilters_SAV.TabIndex = 7;
             buttonApplyFilters_SAV.Text = "Применить";
-            buttonApplyFilters_SAV.UseVisualStyleBackColor = true;
+            toolTip_SAV.SetToolTip(buttonApplyFilters_SAV, "Применить фильтры и сортировку");
+            buttonApplyFilters_SAV.UseVisualStyleBackColor = false;
             buttonApplyFilters_SAV.Click += buttonApplyFilters_SAV_Click;
-            // 
-            // checkBoxAscending_SAV
-            // 
+
             checkBoxAscending_SAV.AutoSize = true;
             checkBoxAscending_SAV.Checked = true;
             checkBoxAscending_SAV.CheckState = CheckState.Checked;
-            checkBoxAscending_SAV.Location = new Point(550, 94);
-            checkBoxAscending_SAV.Margin = new Padding(3, 4, 3, 4);
+            checkBoxAscending_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            checkBoxAscending_SAV.Location = new Point(500, 181);
+            checkBoxAscending_SAV.Margin = new Padding(4, 5, 4, 5);
             checkBoxAscending_SAV.Name = "checkBoxAscending_SAV";
-            checkBoxAscending_SAV.Size = new Size(91, 24);
+            checkBoxAscending_SAV.Size = new Size(102, 24);
             checkBoxAscending_SAV.TabIndex = 6;
             checkBoxAscending_SAV.Text = "По возр.";
+            toolTip_SAV.SetToolTip(checkBoxAscending_SAV, "Сортировка по возрастанию");
             checkBoxAscending_SAV.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxSortBy_SAV
-            // 
+
             comboBoxSortBy_SAV.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSortBy_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboBoxSortBy_SAV.FormattingEnabled = true;
-            comboBoxSortBy_SAV.Location = new Point(400, 90);
-            comboBoxSortBy_SAV.Margin = new Padding(3, 4, 3, 4);
+            comboBoxSortBy_SAV.Location = new Point(200, 178);
+            comboBoxSortBy_SAV.Margin = new Padding(4, 5, 4, 5);
             comboBoxSortBy_SAV.Name = "comboBoxSortBy_SAV";
-            comboBoxSortBy_SAV.Size = new Size(140, 28);
+            comboBoxSortBy_SAV.Size = new Size(280, 28);
             comboBoxSortBy_SAV.TabIndex = 5;
-            // 
-            // labelSortBy_SAV
-            // 
-            labelSortBy_SAV.AutoSize = true;
-            labelSortBy_SAV.Location = new Point(397, 62);
-            labelSortBy_SAV.Name = "labelSortBy_SAV";
-            labelSortBy_SAV.Size = new Size(95, 20);
-            labelSortBy_SAV.TabIndex = 4;
-            labelSortBy_SAV.Text = "Сортировка:";
-            // 
-            // comboBoxFilterDebt_SAV
-            // 
+            toolTip_SAV.SetToolTip(comboBoxSortBy_SAV, "Выберите поле для сортировки");
+
+            labelSort_SAV.AutoSize = true;
+            labelSort_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelSort_SAV.Location = new Point(196, 148);
+            labelSort_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelSort_SAV.Name = "labelSort_SAV";
+            labelSort_SAV.Size = new Size(115, 20);
+            labelSort_SAV.TabIndex = 4;
+            labelSort_SAV.Text = "Сортировка:";
+
             comboBoxFilterDebt_SAV.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilterDebt_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboBoxFilterDebt_SAV.FormattingEnabled = true;
-            comboBoxFilterDebt_SAV.Location = new Point(200, 90);
-            comboBoxFilterDebt_SAV.Margin = new Padding(3, 4, 3, 4);
+            comboBoxFilterDebt_SAV.Location = new Point(400, 94);
+            comboBoxFilterDebt_SAV.Margin = new Padding(4, 5, 4, 5);
             comboBoxFilterDebt_SAV.Name = "comboBoxFilterDebt_SAV";
-            comboBoxFilterDebt_SAV.Size = new Size(140, 28);
+            comboBoxFilterDebt_SAV.Size = new Size(300, 28);
             comboBoxFilterDebt_SAV.TabIndex = 3;
-            // 
-            // labelFilterDebt_SAV
-            // 
+            toolTip_SAV.SetToolTip(comboBoxFilterDebt_SAV, "Фильтр по наличию долга");
+
             labelFilterDebt_SAV.AutoSize = true;
-            labelFilterDebt_SAV.Location = new Point(197, 62);
+            labelFilterDebt_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelFilterDebt_SAV.Location = new Point(396, 64);
+            labelFilterDebt_SAV.Margin = new Padding(4, 0, 4, 0);
             labelFilterDebt_SAV.Name = "labelFilterDebt_SAV";
-            labelFilterDebt_SAV.Size = new Size(54, 20);
+            labelFilterDebt_SAV.Size = new Size(55, 20);
             labelFilterDebt_SAV.TabIndex = 2;
-            labelFilterDebt_SAV.Text = "Долги:";
-            // 
-            // comboBoxFilterEntrance_SAV
-            // 
+            labelFilterDebt_SAV.Text = "Долг:";
+
             comboBoxFilterEntrance_SAV.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilterEntrance_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboBoxFilterEntrance_SAV.FormattingEnabled = true;
-            comboBoxFilterEntrance_SAV.Location = new Point(20, 90);
-            comboBoxFilterEntrance_SAV.Margin = new Padding(3, 4, 3, 4);
+            comboBoxFilterEntrance_SAV.Location = new Point(40, 94);
+            comboBoxFilterEntrance_SAV.Margin = new Padding(4, 5, 4, 5);
             comboBoxFilterEntrance_SAV.Name = "comboBoxFilterEntrance_SAV";
-            comboBoxFilterEntrance_SAV.Size = new Size(140, 28);
+            comboBoxFilterEntrance_SAV.Size = new Size(300, 28);
             comboBoxFilterEntrance_SAV.TabIndex = 1;
-            // 
-            // labelFilterEntrance_SAV
-            // 
+            toolTip_SAV.SetToolTip(comboBoxFilterEntrance_SAV, "Фильтр по номеру подъезда");
             labelFilterEntrance_SAV.AutoSize = true;
-            labelFilterEntrance_SAV.Location = new Point(17, 62);
+            labelFilterEntrance_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelFilterEntrance_SAV.Location = new Point(36, 64);
+            labelFilterEntrance_SAV.Margin = new Padding(4, 0, 4, 0);
             labelFilterEntrance_SAV.Name = "labelFilterEntrance_SAV";
-            labelFilterEntrance_SAV.Size = new Size(72, 20);
+            labelFilterEntrance_SAV.Size = new Size(91, 20);
             labelFilterEntrance_SAV.TabIndex = 0;
             labelFilterEntrance_SAV.Text = "Подъезд:";
-            // 
-            // groupBoxSearch_SAV
-            // 
-            groupBoxSearch_SAV.Controls.Add(buttonSearch_SAV);
-            groupBoxSearch_SAV.Controls.Add(textBoxSearch_SAV);
-            groupBoxSearch_SAV.Dock = DockStyle.Top;
-            groupBoxSearch_SAV.Location = new Point(10, 12);
-            groupBoxSearch_SAV.Margin = new Padding(3, 4, 3, 4);
-            groupBoxSearch_SAV.Name = "groupBoxSearch_SAV";
-            groupBoxSearch_SAV.Padding = new Padding(3, 4, 3, 4);
-            groupBoxSearch_SAV.Size = new Size(780, 72);
-            groupBoxSearch_SAV.TabIndex = 0;
-            groupBoxSearch_SAV.TabStop = false;
-            groupBoxSearch_SAV.Text = "Поиск по фамилии";
-            // 
-            // buttonSearch_SAV
-            // 
-            buttonSearch_SAV.Enabled = false;
-            buttonSearch_SAV.Location = new Point(650, 25);
-            buttonSearch_SAV.Margin = new Padding(3, 4, 3, 4);
-            buttonSearch_SAV.Name = "buttonSearch_SAV";
-            buttonSearch_SAV.Size = new Size(120, 38);
-            buttonSearch_SAV.TabIndex = 1;
-            buttonSearch_SAV.Text = "Найти";
-            buttonSearch_SAV.UseVisualStyleBackColor = true;
-            buttonSearch_SAV.Click += buttonSearch_SAV_Click;
-            // 
-            // textBoxSearch_SAV
-            // 
-            textBoxSearch_SAV.Enabled = false;
-            textBoxSearch_SAV.Location = new Point(20, 31);
-            textBoxSearch_SAV.Margin = new Padding(3, 4, 3, 4);
-            textBoxSearch_SAV.Name = "textBoxSearch_SAV";
-            textBoxSearch_SAV.Size = new Size(620, 27);
-            textBoxSearch_SAV.TabIndex = 0;
-            textBoxSearch_SAV.KeyPress += textBoxSearch_SAV_KeyPress;
-            // 
-            // panelRight_SAV
-            // 
-            panelRight_SAV.Controls.Add(groupBoxChart_SAV);
-            panelRight_SAV.Controls.Add(groupBoxStatistics_SAV);
-            panelRight_SAV.Dock = DockStyle.Fill;
-            panelRight_SAV.Location = new Point(0, 0);
-            panelRight_SAV.Margin = new Padding(3, 4, 3, 4);
-            panelRight_SAV.Name = "panelRight_SAV";
-            panelRight_SAV.Padding = new Padding(10, 12, 10, 12);
-            panelRight_SAV.Size = new Size(396, 794);
-            panelRight_SAV.TabIndex = 0;
-            // 
-            // groupBoxChart_SAV
-            // 
-            groupBoxChart_SAV.Controls.Add(chartStatistics_SAV);
-            groupBoxChart_SAV.Dock = DockStyle.Fill;
-            groupBoxChart_SAV.Location = new Point(10, 290);
-            groupBoxChart_SAV.Margin = new Padding(3, 4, 3, 4);
-            groupBoxChart_SAV.Name = "groupBoxChart_SAV";
-            groupBoxChart_SAV.Padding = new Padding(3, 4, 3, 4);
-            groupBoxChart_SAV.Size = new Size(376, 492);
-            groupBoxChart_SAV.TabIndex = 1;
-            groupBoxChart_SAV.TabStop = false;
-            groupBoxChart_SAV.Text = "График распределения";
-            // 
-            // chartStatistics_SAV
-            // 
-            chartArea1.Name = "ChartArea1";
-            chartStatistics_SAV.ChartAreas.Add(chartArea1);
-            chartStatistics_SAV.Dock = DockStyle.Fill;
-            legend1.Name = "Legend1";
-            chartStatistics_SAV.Legends.Add(legend1);
-            chartStatistics_SAV.Location = new Point(3, 24);
-            chartStatistics_SAV.Margin = new Padding(3, 4, 3, 4);
-            chartStatistics_SAV.Name = "chartStatistics_SAV";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartStatistics_SAV.Series.Add(series1);
-            chartStatistics_SAV.Size = new Size(370, 464);
-            chartStatistics_SAV.TabIndex = 0;
-            chartStatistics_SAV.Text = "chartStatistics_SAV";
-            // 
-            // groupBoxStatistics_SAV
-            // 
-            groupBoxStatistics_SAV.Controls.Add(labelTotalRooms_SAV);
-            groupBoxStatistics_SAV.Controls.Add(labelAvgFamily_SAV);
-            groupBoxStatistics_SAV.Controls.Add(labelTotalChildren_SAV);
-            groupBoxStatistics_SAV.Controls.Add(labelDebtors_SAV);
-            groupBoxStatistics_SAV.Controls.Add(labelAvgArea_SAV);
-            groupBoxStatistics_SAV.Controls.Add(labelTotalArea_SAV);
-            groupBoxStatistics_SAV.Controls.Add(labelTotalApartments_SAV);
-            groupBoxStatistics_SAV.Dock = DockStyle.Top;
-            groupBoxStatistics_SAV.Location = new Point(10, 12);
-            groupBoxStatistics_SAV.Margin = new Padding(3, 4, 3, 4);
-            groupBoxStatistics_SAV.Name = "groupBoxStatistics_SAV";
-            groupBoxStatistics_SAV.Padding = new Padding(3, 4, 3, 4);
-            groupBoxStatistics_SAV.Size = new Size(376, 278);
-            groupBoxStatistics_SAV.TabIndex = 0;
-            groupBoxStatistics_SAV.TabStop = false;
-            groupBoxStatistics_SAV.Text = "Статистика";
-            // 
-            // labelTotalRooms_SAV
-            // 
-            labelTotalRooms_SAV.AutoSize = true;
-            labelTotalRooms_SAV.Location = new Point(20, 238);
-            labelTotalRooms_SAV.Name = "labelTotalRooms_SAV";
-            labelTotalRooms_SAV.Size = new Size(117, 20);
-            labelTotalRooms_SAV.TabIndex = 6;
-            labelTotalRooms_SAV.Text = "Всего комнат: 0";
-            // 
-            // labelAvgFamily_SAV
-            // 
-            labelAvgFamily_SAV.AutoSize = true;
-            labelAvgFamily_SAV.Location = new Point(20, 205);
-            labelAvgFamily_SAV.Name = "labelAvgFamily_SAV";
-            labelAvgFamily_SAV.Size = new Size(148, 20);
-            labelAvgFamily_SAV.TabIndex = 5;
-            labelAvgFamily_SAV.Text = "Ср. размер семьи: 0";
-            // 
-            // labelTotalChildren_SAV
-            // 
-            labelTotalChildren_SAV.AutoSize = true;
-            labelTotalChildren_SAV.Location = new Point(20, 172);
-            labelTotalChildren_SAV.Name = "labelTotalChildren_SAV";
-            labelTotalChildren_SAV.Size = new Size(106, 20);
-            labelTotalChildren_SAV.TabIndex = 4;
-            labelTotalChildren_SAV.Text = "Всего детей: 0";
-            // 
-            // labelDebtors_SAV
-            // 
-            labelDebtors_SAV.AutoSize = true;
-            labelDebtors_SAV.Location = new Point(20, 140);
-            labelDebtors_SAV.Name = "labelDebtors_SAV";
-            labelDebtors_SAV.Size = new Size(104, 20);
-            labelDebtors_SAV.TabIndex = 3;
-            labelDebtors_SAV.Text = "Должников: 0";
-            // 
-            // labelAvgArea_SAV
-            // 
-            labelAvgArea_SAV.AutoSize = true;
-            labelAvgArea_SAV.Location = new Point(20, 108);
-            labelAvgArea_SAV.Name = "labelAvgArea_SAV";
-            labelAvgArea_SAV.Size = new Size(170, 20);
-            labelAvgArea_SAV.TabIndex = 2;
-            labelAvgArea_SAV.Text = "Средняя площадь: 0 м²";
-            // 
-            // labelTotalArea_SAV
-            // 
-            labelTotalArea_SAV.AutoSize = true;
-            labelTotalArea_SAV.Location = new Point(20, 75);
-            labelTotalArea_SAV.Name = "labelTotalArea_SAV";
-            labelTotalArea_SAV.Size = new Size(159, 20);
-            labelTotalArea_SAV.TabIndex = 1;
-            labelTotalArea_SAV.Text = "Общая площадь: 0 м²";
-            // 
-            // labelTotalApartments_SAV
-            // 
+
+            tabPageStats.Controls.Add(groupBoxStats_SAV);
+            tabPageStats.Location = new Point(4, 29);
+            tabPageStats.Margin = new Padding(4, 5, 4, 5);
+            tabPageStats.Name = "tabPageStats";
+            tabPageStats.Padding = new Padding(4, 5, 4, 5);
+            tabPageStats.Size = new Size(792, 724);
+            tabPageStats.TabIndex = 2;
+            tabPageStats.Text = "Статистика";
+            tabPageStats.UseVisualStyleBackColor = true;
+
+            groupBoxStats_SAV.Controls.Add(tableLayoutPanelStats_SAV);
+            groupBoxStats_SAV.Dock = DockStyle.Fill;
+            groupBoxStats_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            groupBoxStats_SAV.Location = new Point(4, 5);
+            groupBoxStats_SAV.Margin = new Padding(4, 5, 4, 5);
+            groupBoxStats_SAV.Name = "groupBoxStats_SAV";
+            groupBoxStats_SAV.Padding = new Padding(4, 5, 4, 5);
+            groupBoxStats_SAV.Size = new Size(784, 714);
+            groupBoxStats_SAV.TabIndex = 2;
+            groupBoxStats_SAV.TabStop = false;
+            groupBoxStats_SAV.Text = "Статистика";
+
+            tableLayoutPanelStats_SAV.ColumnCount = 2;
+            tableLayoutPanelStats_SAV.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanelStats_SAV.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanelStats_SAV.Controls.Add(labelTotalApartments_SAV, 0, 0);
+            tableLayoutPanelStats_SAV.Controls.Add(labelTotalArea_SAV, 1, 0);
+            tableLayoutPanelStats_SAV.Controls.Add(labelAvgArea_SAV, 0, 1);
+            tableLayoutPanelStats_SAV.Controls.Add(labelDebtors_SAV, 1, 1);
+            tableLayoutPanelStats_SAV.Controls.Add(labelTotalChildren_SAV, 0, 2);
+            tableLayoutPanelStats_SAV.Controls.Add(labelAvgFamily_SAV, 1, 2);
+            tableLayoutPanelStats_SAV.Controls.Add(labelTotalRooms_SAV, 0, 3);
+            tableLayoutPanelStats_SAV.Dock = DockStyle.Fill;
+            tableLayoutPanelStats_SAV.Location = new Point(4, 22);
+            tableLayoutPanelStats_SAV.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanelStats_SAV.Name = "tableLayoutPanelStats_SAV";
+            tableLayoutPanelStats_SAV.RowCount = 7;
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanelStats_SAV.Size = new Size(776, 687);
+            tableLayoutPanelStats_SAV.TabIndex = 0;
+
             labelTotalApartments_SAV.AutoSize = true;
-            labelTotalApartments_SAV.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
-            labelTotalApartments_SAV.Location = new Point(20, 38);
+            labelTotalApartments_SAV.Dock = DockStyle.Fill;
+            labelTotalApartments_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTotalApartments_SAV.Location = new Point(4, 0);
+            labelTotalApartments_SAV.Margin = new Padding(4, 0, 4, 0);
             labelTotalApartments_SAV.Name = "labelTotalApartments_SAV";
-            labelTotalApartments_SAV.Size = new Size(109, 20);
+            labelTotalApartments_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelTotalApartments_SAV.Size = new Size(380, 98);
             labelTotalApartments_SAV.TabIndex = 0;
             labelTotalApartments_SAV.Text = "Квартир: 0";
-            // 
-            // FormMain_SAV
-            // 
+
+            labelTotalArea_SAV.AutoSize = true;
+            labelTotalArea_SAV.Dock = DockStyle.Fill;
+            labelTotalArea_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTotalArea_SAV.Location = new Point(392, 0);
+            labelTotalArea_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelTotalArea_SAV.Name = "labelTotalArea_SAV";
+            labelTotalArea_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelTotalArea_SAV.Size = new Size(380, 98);
+            labelTotalArea_SAV.TabIndex = 1;
+            labelTotalArea_SAV.Text = "Общая площадь: 0 м²";
+
+            labelAvgArea_SAV.AutoSize = true;
+            labelAvgArea_SAV.Dock = DockStyle.Fill;
+            labelAvgArea_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelAvgArea_SAV.Location = new Point(4, 98);
+            labelAvgArea_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelAvgArea_SAV.Name = "labelAvgArea_SAV";
+            labelAvgArea_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelAvgArea_SAV.Size = new Size(380, 98);
+            labelAvgArea_SAV.TabIndex = 2;
+            labelAvgArea_SAV.Text = "Средняя пл.: 0 м²";
+
+            labelDebtors_SAV.AutoSize = true;
+            labelDebtors_SAV.Dock = DockStyle.Fill;
+            labelDebtors_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelDebtors_SAV.Location = new Point(392, 98);
+            labelDebtors_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelDebtors_SAV.Name = "labelDebtors_SAV";
+            labelDebtors_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelDebtors_SAV.Size = new Size(380, 98);
+            labelDebtors_SAV.TabIndex = 3;
+            labelDebtors_SAV.Text = "Должники: 0";
+
+            labelTotalChildren_SAV.AutoSize = true;
+            labelTotalChildren_SAV.Dock = DockStyle.Fill;
+            labelTotalChildren_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTotalChildren_SAV.Location = new Point(4, 196);
+            labelTotalChildren_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelTotalChildren_SAV.Name = "labelTotalChildren_SAV";
+            labelTotalChildren_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelTotalChildren_SAV.Size = new Size(380, 98);
+            labelTotalChildren_SAV.TabIndex = 4;
+            labelTotalChildren_SAV.Text = "Дети: 0";
+
+            labelAvgFamily_SAV.AutoSize = true;
+            labelAvgFamily_SAV.Dock = DockStyle.Fill;
+            labelAvgFamily_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelAvgFamily_SAV.Location = new Point(392, 196);
+            labelAvgFamily_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelAvgFamily_SAV.Name = "labelAvgFamily_SAV";
+            labelAvgFamily_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelAvgFamily_SAV.Size = new Size(380, 98);
+            labelAvgFamily_SAV.TabIndex = 5;
+            labelAvgFamily_SAV.Text = "Средняя семья: 0";
+
+            labelTotalRooms_SAV.AutoSize = true;
+            labelTotalRooms_SAV.Dock = DockStyle.Fill;
+            labelTotalRooms_SAV.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTotalRooms_SAV.Location = new Point(4, 294);
+            labelTotalRooms_SAV.Margin = new Padding(4, 0, 4, 0);
+            labelTotalRooms_SAV.Name = "labelTotalRooms_SAV";
+            labelTotalRooms_SAV.Padding = new Padding(10, 30, 0, 0);
+            labelTotalRooms_SAV.Size = new Size(380, 98);
+            labelTotalRooms_SAV.TabIndex = 6;
+            labelTotalRooms_SAV.Text = "Комнаты: 0";
+
+            panelButtons_SAV.Controls.Add(buttonExportStats_SAV);
+            panelButtons_SAV.Controls.Add(buttonDeleteApartment_SAV);
+            panelButtons_SAV.Controls.Add(buttonEditApartment_SAV);
+            panelButtons_SAV.Controls.Add(buttonAddApartment_SAV);
+            panelButtons_SAV.Controls.Add(buttonSaveFile_SAV);
+            panelButtons_SAV.Controls.Add(buttonLoadFile_SAV);
+            panelButtons_SAV.Dock = DockStyle.Bottom;
+            panelButtons_SAV.Location = new Point(0, 757);
+            panelButtons_SAV.Margin = new Padding(4, 5, 4, 5);
+            panelButtons_SAV.Name = "panelButtons_SAV";
+            panelButtons_SAV.Size = new Size(800, 100);
+            panelButtons_SAV.TabIndex = 2;
+
+            buttonExportStats_SAV.BackColor = Color.MediumSeaGreen;
+            buttonExportStats_SAV.FlatStyle = FlatStyle.Flat;
+            buttonExportStats_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonExportStats_SAV.ForeColor = Color.White;
+            buttonExportStats_SAV.Location = new Point(665, 19);
+            buttonExportStats_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonExportStats_SAV.Name = "buttonExportStats_SAV";
+            buttonExportStats_SAV.Size = new Size(125, 60);
+            buttonExportStats_SAV.TabIndex = 5;
+            buttonExportStats_SAV.Text = "Экспорт";
+            toolTip_SAV.SetToolTip(buttonExportStats_SAV, "Экспорт статистики в файл");
+            buttonExportStats_SAV.UseVisualStyleBackColor = false;
+            buttonExportStats_SAV.Click += buttonExportStats_SAV_Click;
+
+            buttonDeleteApartment_SAV.BackColor = Color.IndianRed;
+            buttonDeleteApartment_SAV.FlatStyle = FlatStyle.Flat;
+            buttonDeleteApartment_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonDeleteApartment_SAV.ForeColor = Color.White;
+            buttonDeleteApartment_SAV.Location = new Point(533, 19);
+            buttonDeleteApartment_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonDeleteApartment_SAV.Name = "buttonDeleteApartment_SAV";
+            buttonDeleteApartment_SAV.Size = new Size(125, 60);
+            buttonDeleteApartment_SAV.TabIndex = 4;
+            buttonDeleteApartment_SAV.Text = "Удалить";
+            toolTip_SAV.SetToolTip(buttonDeleteApartment_SAV, "Удалить выбранную квартиру (Delete)");
+            buttonDeleteApartment_SAV.UseVisualStyleBackColor = false;
+            buttonDeleteApartment_SAV.Click += buttonDeleteApartment_SAV_Click;
+
+            buttonEditApartment_SAV.BackColor = Color.Goldenrod;
+            buttonEditApartment_SAV.FlatStyle = FlatStyle.Flat;
+            buttonEditApartment_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonEditApartment_SAV.ForeColor = Color.White;
+            buttonEditApartment_SAV.Location = new Point(401, 19);
+            buttonEditApartment_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonEditApartment_SAV.Name = "buttonEditApartment_SAV";
+            buttonEditApartment_SAV.Size = new Size(125, 60);
+            buttonEditApartment_SAV.TabIndex = 3;
+            buttonEditApartment_SAV.Text = "Изменить";
+            toolTip_SAV.SetToolTip(buttonEditApartment_SAV, "Редактировать выбранную квартиру (Ctrl+E)");
+            buttonEditApartment_SAV.UseVisualStyleBackColor = false;
+            buttonEditApartment_SAV.Click += buttonEditApartment_SAV_Click;
+
+            buttonAddApartment_SAV.BackColor = Color.SeaGreen;
+            buttonAddApartment_SAV.FlatStyle = FlatStyle.Flat;
+            buttonAddApartment_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonAddApartment_SAV.ForeColor = Color.White;
+            buttonAddApartment_SAV.Location = new Point(269, 19);
+            buttonAddApartment_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonAddApartment_SAV.Name = "buttonAddApartment_SAV";
+            buttonAddApartment_SAV.Size = new Size(125, 60);
+            buttonAddApartment_SAV.TabIndex = 2;
+            buttonAddApartment_SAV.Text = "Добавить";
+            toolTip_SAV.SetToolTip(buttonAddApartment_SAV, "Добавить новую квартиру (Ctrl+N)");
+            buttonAddApartment_SAV.UseVisualStyleBackColor = false;
+            buttonAddApartment_SAV.Click += buttonAddApartment_SAV_Click;
+
+            buttonSaveFile_SAV.BackColor = Color.RoyalBlue;
+            buttonSaveFile_SAV.FlatStyle = FlatStyle.Flat;
+            buttonSaveFile_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonSaveFile_SAV.ForeColor = Color.White;
+            buttonSaveFile_SAV.Location = new Point(137, 19);
+            buttonSaveFile_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonSaveFile_SAV.Name = "buttonSaveFile_SAV";
+            buttonSaveFile_SAV.Size = new Size(125, 60);
+            buttonSaveFile_SAV.TabIndex = 1;
+            buttonSaveFile_SAV.Text = "Сохранить";
+            toolTip_SAV.SetToolTip(buttonSaveFile_SAV, "Сохранить данные в файл (Ctrl+S)");
+            buttonSaveFile_SAV.UseVisualStyleBackColor = false;
+            buttonSaveFile_SAV.Click += buttonSaveFile_SAV_Click;
+
+            buttonLoadFile_SAV.BackColor = Color.DodgerBlue;
+            buttonLoadFile_SAV.FlatStyle = FlatStyle.Flat;
+            buttonLoadFile_SAV.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonLoadFile_SAV.ForeColor = Color.White;
+            buttonLoadFile_SAV.Location = new Point(5, 19);
+            buttonLoadFile_SAV.Margin = new Padding(4, 5, 4, 5);
+            buttonLoadFile_SAV.Name = "buttonLoadFile_SAV";
+            buttonLoadFile_SAV.Size = new Size(125, 60);
+            buttonLoadFile_SAV.TabIndex = 0;
+            buttonLoadFile_SAV.Text = "Загрузить";
+            toolTip_SAV.SetToolTip(buttonLoadFile_SAV, "Загрузить данные из файла (Ctrl+O)");
+            buttonLoadFile_SAV.UseVisualStyleBackColor = false;
+            buttonLoadFile_SAV.Click += buttonLoadFile_SAV_Click;
+
+            chartStatistics_SAV.Dock = DockStyle.Fill;
+            chartStatistics_SAV.Location = new Point(0, 0);
+            chartStatistics_SAV.Margin = new Padding(4, 5, 4, 5);
+            chartStatistics_SAV.Name = "chartStatistics_SAV";
+            chartStatistics_SAV.Size = new Size(477, 857);
+            chartStatistics_SAV.TabIndex = 0;
+            chartStatistics_SAV.Text = "chart1";
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 875);
-            Controls.Add(splitContainerMain_SAV);
+            ClientSize = new Size(1282, 911);
+            Controls.Add(splitContainerMain);
             Controls.Add(statusStripMain_SAV);
-            Controls.Add(toolStripMain_SAV);
             Controls.Add(menuStripMain_SAV);
             MainMenuStrip = menuStripMain_SAV;
-            Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(1000, 738);
+            Margin = new Padding(4, 5, 4, 5);
+            MinimumSize = new Size(1300, 958);
             Name = "FormMain_SAV";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Система домоуправления | Шиганова А.В. | Вариант 7";
+            Text = "Домоуправление - Учет квартир";
             Load += FormMain_SAV_Load;
             menuStripMain_SAV.ResumeLayout(false);
             menuStripMain_SAV.PerformLayout();
-            toolStripMain_SAV.ResumeLayout(false);
-            toolStripMain_SAV.PerformLayout();
             statusStripMain_SAV.ResumeLayout(false);
             statusStripMain_SAV.PerformLayout();
-            splitContainerMain_SAV.Panel1.ResumeLayout(false);
-            splitContainerMain_SAV.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerMain_SAV).EndInit();
-            splitContainerMain_SAV.ResumeLayout(false);
-            panelLeft_SAV.ResumeLayout(false);
+            splitContainerMain.Panel1.ResumeLayout(false);
+            splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerMain).EndInit();
+            splitContainerMain.ResumeLayout(false);
+            tabControlMain.ResumeLayout(false);
+            tabPageData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewApartments_SAV).EndInit();
-            groupBoxFilters_SAV.ResumeLayout(false);
-            groupBoxFilters_SAV.PerformLayout();
+            tabPageFilters.ResumeLayout(false);
+            panelFilters.ResumeLayout(false);
             groupBoxSearch_SAV.ResumeLayout(false);
             groupBoxSearch_SAV.PerformLayout();
-            panelRight_SAV.ResumeLayout(false);
-            groupBoxChart_SAV.ResumeLayout(false);
+            groupBoxFilters_SAV.ResumeLayout(false);
+            groupBoxFilters_SAV.PerformLayout();
+            tabPageStats.ResumeLayout(false);
+            groupBoxStats_SAV.ResumeLayout(false);
+            tableLayoutPanelStats_SAV.ResumeLayout(false);
+            tableLayoutPanelStats_SAV.PerformLayout();
+            panelButtons_SAV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)chartStatistics_SAV).EndInit();
-            groupBoxStatistics_SAV.ResumeLayout(false);
-            groupBoxStatistics_SAV.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
@@ -627,55 +691,61 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStripMain_SAV;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpen_SAV;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSave_SAV;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit_SAV;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout_SAV;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelp_SAV;
-        private System.Windows.Forms.ToolStrip toolStripMain_SAV;
-        private System.Windows.Forms.ToolStripButton buttonLoadFile_SAV;
-        private System.Windows.Forms.ToolStripButton buttonSaveFile_SAV;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton buttonAddApartment_SAV;
-        private System.Windows.Forms.ToolStripButton buttonEditApartment_SAV;
-        private System.Windows.Forms.ToolStripButton buttonDeleteApartment_SAV;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton buttonExportStats_SAV;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton buttonHelp_SAV;
-        private System.Windows.Forms.ToolStripButton buttonAbout_SAV;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1_SAV;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addApartmentToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripMenuItem editApartmentToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripMenuItem deleteApartmentToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem_SAV;
+        private System.Windows.Forms.ToolStripMenuItem guideToolStripMenuItem_SAV;
         private System.Windows.Forms.StatusStrip statusStripMain_SAV;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelInfo_SAV;
-        private System.Windows.Forms.SplitContainer splitContainerMain_SAV;
-        private System.Windows.Forms.Panel panelLeft_SAV;
+        private System.Windows.Forms.SplitContainer splitContainerMain;
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabPageData;
         private System.Windows.Forms.DataGridView dataGridViewApartments_SAV;
+        private System.Windows.Forms.TabPage tabPageFilters;
+        private System.Windows.Forms.Panel panelFilters;
+        private System.Windows.Forms.GroupBox groupBoxSearch_SAV;
+        private System.Windows.Forms.Button buttonSearch_SAV;
+        private System.Windows.Forms.TextBox textBoxSearch_SAV;
+        private System.Windows.Forms.Label labelSearch_SAV;
         private System.Windows.Forms.GroupBox groupBoxFilters_SAV;
+        private System.Windows.Forms.Button buttonClearFilters_SAV;
         private System.Windows.Forms.Button buttonApplyFilters_SAV;
         private System.Windows.Forms.CheckBox checkBoxAscending_SAV;
         private System.Windows.Forms.ComboBox comboBoxSortBy_SAV;
-        private System.Windows.Forms.Label labelSortBy_SAV;
+        private System.Windows.Forms.Label labelSort_SAV;
         private System.Windows.Forms.ComboBox comboBoxFilterDebt_SAV;
         private System.Windows.Forms.Label labelFilterDebt_SAV;
         private System.Windows.Forms.ComboBox comboBoxFilterEntrance_SAV;
         private System.Windows.Forms.Label labelFilterEntrance_SAV;
-        private System.Windows.Forms.GroupBox groupBoxSearch_SAV;
-        private System.Windows.Forms.Button buttonSearch_SAV;
-        private System.Windows.Forms.TextBox textBoxSearch_SAV;
-        private System.Windows.Forms.Panel panelRight_SAV;
-        private System.Windows.Forms.GroupBox groupBoxChart_SAV;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistics_SAV;
-        private System.Windows.Forms.GroupBox groupBoxStatistics_SAV;
-        private System.Windows.Forms.Label labelTotalRooms_SAV;
-        private System.Windows.Forms.Label labelAvgFamily_SAV;
-        private System.Windows.Forms.Label labelTotalChildren_SAV;
-        private System.Windows.Forms.Label labelDebtors_SAV;
-        private System.Windows.Forms.Label labelAvgArea_SAV;
-        private System.Windows.Forms.Label labelTotalArea_SAV;
+        private System.Windows.Forms.TabPage tabPageStats;
+        private System.Windows.Forms.GroupBox groupBoxStats_SAV;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelStats_SAV;
         private System.Windows.Forms.Label labelTotalApartments_SAV;
+        private System.Windows.Forms.Label labelTotalArea_SAV;
+        private System.Windows.Forms.Label labelAvgArea_SAV;
+        private System.Windows.Forms.Label labelDebtors_SAV;
+        private System.Windows.Forms.Label labelTotalChildren_SAV;
+        private System.Windows.Forms.Label labelAvgFamily_SAV;
+        private System.Windows.Forms.Label labelTotalRooms_SAV;
+        private System.Windows.Forms.Panel panelButtons_SAV;
+        private System.Windows.Forms.Button buttonExportStats_SAV;
+        private System.Windows.Forms.Button buttonDeleteApartment_SAV;
+        private System.Windows.Forms.Button buttonEditApartment_SAV;
+        private System.Windows.Forms.Button buttonAddApartment_SAV;
+        private System.Windows.Forms.Button buttonSaveFile_SAV;
+        private System.Windows.Forms.Button buttonLoadFile_SAV;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistics_SAV;
+        private System.Windows.Forms.ToolTip toolTip_SAV;
 
-        private void FormMain_SAV_Load(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

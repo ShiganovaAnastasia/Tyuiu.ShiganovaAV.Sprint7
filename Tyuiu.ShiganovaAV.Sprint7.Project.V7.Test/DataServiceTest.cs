@@ -3,70 +3,193 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Tyuiu.ShiganovaAV.Sprint7.Project.V7.Lib;
-using static Tyuiu.ShiganovaAV.Sprint7.Project.V7.Lib.DataService;
+
 namespace Tyuiu.ShiganovaAV.Sprint7.Project.V7.Test
 {
+    [TestClass]
     public class DataServiceTest
     {
-        private DataService ds = new DataService();
-        private List<Apartment> testApartments;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            testApartments = new List<Apartment>
-            {
-                new Apartment(1, 1, 45.5, 35.0, 2, "Иванов", new DateTime(2010, 5, 10), 3, 1, false, ""),
-                new Apartment(1, 2, 60.0, 45.0, 3, "Петров", new DateTime(2015, 8, 15), 4, 2, true, "Долг 3 месяца"),
-                new Apartment(2, 3, 75.0, 55.0, 4, "Сидоров", new DateTime(2018, 3, 20), 5, 3, false, "")
-            };
-        }
-
         [TestMethod]
-        public void ValidLoadFromFile()
+        public void LoadFromFile_ValidFile_ReturnsData()
         {
-            string path = @"TestData.csv";
+            var ds = new DataService();
+            string path = "test.csv";
 
-            // Создаем тестовый файл
             File.WriteAllText(path,
                 "Подъезд;Квартира;ОбщаяПлощадь;ЖилаяПлощадь;Комнаты;Фамилия;ДатаПрописки;ЧленовСемьи;Детей;Задолженность;Примечание\n" +
-                "1;1;45.5;35.0;2;Иванов;10.05.2010;3;1;False;\n" +
-                "1;2;60.0;45.0;3;Петров;15.08.2015;4;2;True;Долг 3 месяца");
+                "1;1;45.5;35.0;2;Иванов;10.05.2010;3;1;False;\n");
 
-            var result = ds.LoadFromFile(path);
+            var result = ds.Load(path);
 
-            Assert.AreEqual(2, result.Count);
-            Assert.AreEqual("Иванов", result[0].TenantSurname);
-            Assert.AreEqual(60.0, result[1].TotalArea);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("Иванов", result[0].Surname);
+            Assert.AreEqual(45.5, result[0].TotalArea);
 
             File.Delete(path);
         }
 
         [TestMethod]
-        public void ValidSearchBySurname()
+        public void SearchBySurname_Found_ReturnsMatches()
         {
-            var result = ds.SearchBySurname(testApartments, "петр");
-            Assert.AreEqual(1, result.Count);
-            Assert.AreEqual("Петров", result[0].TenantSurname);
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment { Surname = "Иванов" },
+                new Apartment { Surname = "Петров" },
+                new Apartment { Surname = "Иванова" }
+            };
+
+            var result = ds.Search(list, "ива");
+
+            Assert.AreEqual(2, result.Count);
         }
 
         [TestMethod]
-        public void ValidFilterByDebt()
+        public void FilterByDebt_OnlyDebtors_ReturnsCorrect()
         {
-            var debtors = ds.FilterByDebt(testApartments, true);
-            Assert.AreEqual(1, debtors.Count);
-            Assert.AreEqual("Петров", debtors[0].TenantSurname);
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment { Debt = true },
+                new Apartment { Debt = false },
+                new Apartment { Debt = true }
+            };
 
-            var nonDebtors = ds.FilterByDebt(testApartments, false);
-            Assert.AreEqual(2, nonDebtors.Count);
+            var result = ds.FilterDebt(list, true);
+
+            Assert.AreEqual(2, result.Count);
+            Assert.IsTrue(result.All(a => a.Debt));
         }
 
         [TestMethod]
-        public void ValidSortByApartmentNumber()
+        public void SortByNumber_Ascending_Works()
         {
-            var sorted = ds.SortByApartmentNumber(testApartments, true);
-            Assert.AreEqual(1, sorted[0].ApartmentNumber);
-            Assert.AreEqual(3, sorted[2].ApartmentNumber);
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment { Number = 5 },
+                new Apartment { Number = 1 },
+                new Apartment { Number = 3 }
+            };
+
+            var result = ds.SortByNumber(list, true);
+
+            Assert.AreEqual(1, result[0].Number);
+            Assert.AreEqual(5, result[2].Number);
+        }
+
+        [TestMethod]
+        public void GetStats_EmptyList_ReturnsZeros()
+        {
+            var ds = new DataService();
+            var list = new List<Apartment>();
+
+            var stats = ds.GetStats(list);
+
+            Assert.AreEqual(0, stats["Квартир"]);
+            Assert.AreEqual(0, stats["ОбщаяПлощадь"]);
+        }
+
+        [TestMethod]
+        public void GetStats_ValidList_CalculatesCorrectly()
+        {
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment { TotalArea = 50, Family = 3, Children = 1, Debt = false, Rooms = 2 },
+                new Apartment { TotalArea = 70, Family = 4, Children = 2, Debt = true, Rooms = 3 }
+            };
+
+            var stats = ds.GetStats(list);
+
+            Assert.AreEqual(2, stats["Квартир"]);
+            Assert.AreEqual(120, stats["ОбщаяПлощадь"]);
+            Assert.AreEqual(60, stats["СрПлощадь"]);
+            Assert.AreEqual(1, stats["Должники"]);
+            Assert.AreEqual(3, stats["Дети"]);
+            Assert.AreEqual(7, stats["Жильцы"]);
+            Assert.AreEqual(3.5, stats["СрСемья"]);
+            Assert.AreEqual(5, stats["Комнаты"]);
+        }
+
+        [TestMethod]
+        public void FilterByEntrance_SpecificEntrance_ReturnsFiltered()
+        {
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment { Entrance = 1 },
+                new Apartment { Entrance = 2 },
+                new Apartment { Entrance = 1 }
+            };
+
+            var result = ds.FilterEntrance(list, 1);
+
+            Assert.AreEqual(2, result.Count);
+            Assert.IsTrue(result.All(a => a.Entrance == 1));
+        }
+
+        [TestMethod]
+        public void GetEntranceStats_ValidData_ReturnsCorrect()
+        {
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment { Entrance = 1, TotalArea = 50, Family = 2, Debt = false, Rooms = 2 },
+                new Apartment { Entrance = 1, TotalArea = 60, Family = 3, Debt = true, Rooms = 3 },
+                new Apartment { Entrance = 2, TotalArea = 70, Family = 4, Debt = false, Rooms = 3 }
+            };
+
+            var result = ds.GetEntranceStats(list);
+
+            Assert.AreEqual(2, result[1].Apartments);
+            Assert.AreEqual(110, result[1].TotalArea);
+            Assert.AreEqual(5, result[1].Residents);
+            Assert.AreEqual(1, result[1].Debtors);
+            Assert.AreEqual(5, result[1].Rooms);
+            Assert.AreEqual(1, result[2].Apartments);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FileNotFoundException))]
+        public void LoadFromFile_MissingFile_ThrowsException()
+        {
+            var ds = new DataService();
+            ds.Load("missing.csv");
+        }
+
+        [TestMethod]
+        public void SaveToFile_ValidData_CreatesFile()
+        {
+            var ds = new DataService();
+            var list = new List<Apartment>
+            {
+                new Apartment
+                {
+                    Entrance = 1,
+                    Number = 10,
+                    TotalArea = 55.5,
+                    LivingArea = 40.0,
+                    Rooms = 3,
+                    Surname = "Тестов",
+                    RegDate = new DateTime(2020, 1, 1),
+                    Family = 4,
+                    Children = 2,
+                    Debt = false,
+                    Notes = "тест"
+                }
+            };
+
+            string path = "save_test.csv";
+            ds.Save(path, list);
+
+            Assert.IsTrue(File.Exists(path));
+
+            var content = File.ReadAllLines(path);
+            Assert.AreEqual(2, content.Length);
+            Assert.IsTrue(content[1].Contains("Тестов"));
+
+            File.Delete(path);
         }
     }
 }
